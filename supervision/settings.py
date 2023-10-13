@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'configuration.apps.ConfigurationConfig',
 ]
 
 MIDDLEWARE = [
@@ -74,12 +75,24 @@ WSGI_APPLICATION = 'supervision.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
+    'default': {
+
+        'ENGINE': 'django.db.backends.mysql',
+
+        'NAME': 'supervision',
+
+        'USER': 'admin',
+
+        'PASSWORD': 'password',
+
+        'HOST': 'localhost',  # Set to the address of your MySQL instance.
+
+        'PORT': '3306',       # Default port for MySQL.
+
+    }
+
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
