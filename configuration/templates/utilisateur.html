@@ -1,0 +1,25 @@
+<form class="item" method="POST">
+    {% csrf_token %}
+    <p><strong>Pour ajouter un utilisateur : </strong></p>
+
+    <p>Login :</p>
+    {{ form.login }}
+
+    <p>Mot de passe :</p>
+    {{ form.password }}
+
+    <p>Nom de famille :</p>
+    {{ form.last_name }}
+    
+    <p>Prénom :</p>
+    {{ form.first_name }}
+    
+    <p>Est admin :</p>
+    {{ form.is_admin }}
+    
+    <p>Mail :</p>
+    {{ form.mail }}
+    
+    <br><br>
+    <input class="button_cursor" type="submit" name="add_user" value="Ajouter un utilisateur" />
+</form>

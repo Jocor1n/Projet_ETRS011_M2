@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Machines</title>
+</head>
+<body>
+    <h1>Liste des Machines</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Adresse IP</th>
+                <th>Port</th>
+                <th>Type SNMP</th>
+                <th>Community</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for machine in machines %}
+            <tr>
+                <td>{{ machine.name }}</td>
+                <td>{{ machine.IPAdresse }}</td>
+                <td>{{ machine.port }}</td>
+                <td>{{ machine.SNMPType }}</td>
+                <td>{{ machine.Community }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

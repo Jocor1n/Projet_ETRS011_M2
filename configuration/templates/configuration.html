@@ -1,17 +1,19 @@
-{% load static %}
-<h1>Site de supervision</h1>
+<form class="item" method="POST">
+    {% csrf_token %}
+    <p><strong>Pour ajouter une machine : </strong></p>
 
-<form class="item" method="POST" >
-    {% csrf_token %} <!-- intègre template csrf_token pour protéger formulaire des attaques -->
-    <p><strong> Pour ajouter une machine : </strong></p>
     <p>Nom :</p>
-    <input type="text" id="name" required></input>
+    {{ form.name }}
+
     <p>Adresse IP :</p>
-    <input type="text" name="ipAddress" ></input>
-    <p>Port :</p>
-    <input type="text" name="port"></input>
+    {{ form.IP }}
+
     <p>Type SNMP :</p>
-    <input type="text" name="snmptype" ></input>
+    {{ form.TypeSNMP }}
+    
+    <p>Communauté :</p>
+    {{ form.Community }}
+    
     <br><br>
-    <input class="button cursor" type="submit" name="add_machine" value="Ajouter une machine" />
+    <input class="button_cursor" type="submit" name="add_machine" value="Ajouter une machine" />
 </form>

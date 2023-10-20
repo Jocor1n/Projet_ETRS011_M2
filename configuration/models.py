@@ -6,18 +6,19 @@ class Utilisateur(models.Model):
     last_name = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
     is_admin = models.BooleanField(default=False)
-    mail = models.EmailField(max_length=255)
+    mail = models.EmailField()
 
 class Machine(models.Model):
     name = models.CharField(max_length=255)
     IPAdresse = models.GenericIPAddressField()
-    port = models.IntegerField()
+    port = models.IntegerField(default=161)
     SNMP_CHOICES = [
         ('1', 'Version 1'),
         ('2c', 'Version 2c'),
         ('3', 'Version 3')
     ]
     SNMPType = models.CharField(max_length=3, choices=SNMP_CHOICES, default='1')
+    Community = models.CharField(max_length=255, default=None)
 
 class OID(models.Model):
     oid = models.CharField(max_length=255)
