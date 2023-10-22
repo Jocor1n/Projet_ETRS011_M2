@@ -10,8 +10,19 @@
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
         
+    <p>Nom :</p>
+    {{ form.name }}
+    
+    <p>Adresse IP :</p>
+    {{ form.IP }}
+    
+    <p>Type SNMP :</p>
+    {{ form.TypeSNMP }}
+    
+    <p>Communauté :</p>
+    {{ form.Community }}
+        <br><br>
         <button type="submit">Mettre à jour</button>
     </form>
 

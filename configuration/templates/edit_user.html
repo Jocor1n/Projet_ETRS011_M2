@@ -3,14 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier une Machine</title>
+    <title>Modifier un utilisateur</title>
 </head>
 <body>
-    <h1>Modifier la Machine</h1>
+    <h1>Modifier l'utilisateur</h1>
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <p>Login :</p>
+        {{ form.login }}
+
+        <p>Mot de passe :</p>
+        {{ form.password }}
+    
+        <p>Nom de famille :</p>
+        {{ form.last_name }}
+    
+        <p>Prénom :</p>
+        {{ form.first_name }}
+    
+        <p>Est admin :</p>
+        {{ form.is_admin }}
+    
+        <p>Mail :</p>
+        {{ form.mail }}
         
         <button type="submit">Mettre à jour</button>
     </form>

@@ -7,9 +7,13 @@
 </head>
 <body>
     <h1>Liste des Machines</h1>
+    <a href="{% url 'add_machine' %}">Ajouter une Machine</a></li>
     <table border="1">
         <thead>
             <tr>
+                <th>Suppressions</th>
+                <th>Editions</th>
+                <th>ID</th>
                 <th>Nom</th>
                 <th>Adresse IP</th>
                 <th>Port</th>
@@ -20,14 +24,18 @@
         <tbody>
             {% for machine in machines %}
             <tr>
+                <td><a href="{% url 'delete_machine' machine.id %}">Supprimer</a></td>
+                <td><a href="{% url 'edit_machine' machine.id %}">Editer</a></td>
+                <td>{{ machine.id }}</td>
                 <td>{{ machine.name }}</td>
                 <td>{{ machine.IPAdresse }}</td>
                 <td>{{ machine.port }}</td>
                 <td>{{ machine.SNMPType }}</td>
                 <td>{{ machine.Community }}</td>
             </tr>
-            {% endfor %}
+            {% endfor %}    
         </tbody>
     </table>
+    <a href="{% url 'index' %}">Retour au menu principal</a>
 </body>
 </html>

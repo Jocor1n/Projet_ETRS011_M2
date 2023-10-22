@@ -20,6 +20,8 @@
     <p>Mail :</p>
     {{ form.mail }}
     
-    <br><br>
+    <br/><br/>
     <input class="button_cursor" type="submit" name="add_user" value="Ajouter un utilisateur" />
+    <br/><br/>
+    <a href="{% url 'liste_users' %}">Retour à la liste des utilisateurs</a>
 </form>
