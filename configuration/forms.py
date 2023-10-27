@@ -10,7 +10,7 @@ class MachineForm (forms.Form):
                                
 class UtilisateurForm (forms.Form):
     login = forms.CharField(max_length=255)
-    password = forms.CharField(max_length=255)  
+    password = forms.CharField(max_length=255, widget=forms.PasswordInput)  
     last_name = forms.CharField(max_length=255)
     first_name = forms.CharField(max_length=255)
     TRUE_FALSE_CHOICES = (

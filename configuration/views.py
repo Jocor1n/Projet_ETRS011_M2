@@ -2,10 +2,14 @@ from django.http import HttpResponse
 from .models import Machine, Utilisateur, OID, SurveillanceManager, Graphique, Logs
 from .forms import MachineForm, UtilisateurForm
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User 
 
+@login_required
 def index(request):
     return render(request, 'index.html')
 
+@login_required
 def add_machine(request):
     form = MachineForm()  # Initialiser le formulaire pour les requêtes GET
 
@@ -24,35 +28,45 @@ def add_machine(request):
 
     return render(request, 'configuration.html', {'form': form})
 
+@login_required
 def add_user(request):
-    form = UtilisateurForm()  # Initialiser le formulaire pour les requêtes GET
+    form = UtilisateurForm()
 
     if request.method == 'POST' and 'add_user' in request.POST:
-        form = UtilisateurForm(request.POST)  
+        form = UtilisateurForm(request.POST)
         if form.is_valid():
-            login = form.cleaned_data['login']
-            password = form.cleaned_data['password']  
-            last_name = form.cleaned_data['last_name']  
+            username = form.cleaned_data['login']
+            password = form.cleaned_data['password']
+            last_name = form.cleaned_data['last_name']
             first_name = form.cleaned_data['first_name']
+            email = form.cleaned_data['mail']  # Note: User model utilise 'email' plutôt que 'mail'
             is_admin = form.cleaned_data['is_admin']
-            mail = form.cleaned_data['mail']
-            
-            Utilisateur.objects.create(login=login, password=password, last_name=last_name, first_name=first_name, is_admin=is_admin, mail=mail)
+
+            # Utilisez create_user pour le hachage correct du mot de passe
+            user = User.objects.create_user(username=username, password=password, email=email, 
+                                            first_name=first_name, last_name=last_name)
+            if is_admin:
+                user.is_superuser = True
+                user.is_staff = True
+                user.save()
+
             return redirect("/configuration")
         else:
             print(form.errors)
 
     return render(request, 'utilisateur.html', {'form': form})
 
+@login_required
 def liste_machines(request):
     machines = Machine.objects.all()
     return render(request, 'liste_machines.html', {'machines': machines})
 
-
+@login_required
 def liste_users(request):
-    users = Utilisateur.objects.all()
+    users = User.objects.all()
     return render(request, 'liste_users.html', {'users': users})
 
+@login_required
 def edit_machine(request, machine_id):
     form = MachineForm()
     machine = get_object_or_404(Machine, id=machine_id)
@@ -74,6 +88,7 @@ def edit_machine(request, machine_id):
         })
     return render(request, 'edit_machine.html', {'form': form})
 
+@login_required
 def delete_machine(request, machine_id):
     machine = get_object_or_404(Machine, id=machine_id)
     if request.method == 'POST':
@@ -81,37 +96,41 @@ def delete_machine(request, machine_id):
         return redirect('liste_machines')
     return render(request, 'confirm_delete.html', {'object': machine})
 
-def edit_user(request, user_id):
-    form = UtilisateurForm()
-    user = get_object_or_404(Utilisateur, id=user_id)
-    if request.method == 'POST':
-        form = UtilisateurForm(request.POST)
-        if form.is_valid():
-            user.login = form.cleaned_data['login']
-            user.password = form.cleaned_data['password']  
-            user.last_name = form.cleaned_data['last_name']  
-            user.first_name = form.cleaned_data['first_name']
-            user.is_admin = form.cleaned_data['is_admin']
-            user.mail = form.cleaned_data['mail']
-            user.save()
-            return redirect('liste_users')
-    else:
-        form = UtilisateurForm(initial={
-        'login' : user.login,
-        'password' : user.password,
-        'last_name' : user.last_name,
-        'first_name' : user.first_name,
-        'is_admin' : user.is_admin,
-        'mail' : user.mail
-        })
-    return render(request, 'edit_user.html', {'form': form})
-
+@login_required
 def delete_user(request, user_id):
-    user = get_object_or_404(Utilisateur, id=user_id)
+    user = get_object_or_404(User, id=user_id)
     if request.method == 'POST':
         user.delete()
         return redirect('liste_users')
     return render(request, 'confirm_delete.html', {'object': user})
 
-
-
+@login_required
+def edit_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    if request.method == 'POST':
+        form = UtilisateurForm(request.POST)
+        if form.is_valid():
+            user.username = form.cleaned_data['login']
+            
+            user.set_password(form.cleaned_data['password'])
+            
+            user.last_name = form.cleaned_data['last_name']
+            user.first_name = form.cleaned_data['first_name']
+            
+            user.is_superuser = form.cleaned_data['is_admin']
+            
+            user.email = form.cleaned_data['mail']
+            
+            user.save()
+            return redirect('liste_users')
+    else:
+        form = UtilisateurForm(initial={
+            'login': user.username,  
+            'password': user.password,  
+            'last_name': user.last_name,
+            'first_name': user.first_name,
+            'is_admin': user.is_superuser, 
+            'mail': user.email  
+        })
+    
+    return render(request, 'edit_user.html', {'form': form})

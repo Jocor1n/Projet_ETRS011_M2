@@ -17,14 +17,14 @@
         {
             "name": "localhost",
             "ip": "localhost"
-        }
+        }    
     ],
     "snmp_results": {
         "MachineManager": {
             "sysName": "Linux ServeurWeb 5.15.0-1049-azure #56~20.04.1-Ubuntu SMP Thu Sep 21 13:01:28 UTC 2023 x86_64",
             "diskSpace": "40",
             "ifOperStatus": "1",
-            "sysUpTime": "1181701",
+            "sysUpTime": "1181701",    
             "networkSpeed": "10000000",
             "cpuUsage": "0.08",
             "ramMax": "3955972",
