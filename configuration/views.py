@@ -3,7 +3,12 @@ from .models import Machine, Utilisateur, OID, SurveillanceManager, Graphique, L
 from .forms import MachineForm, UtilisateurForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.conf import settings 
+import os
+import json
+import pprint
+
 
 @login_required
 def index(request):
@@ -22,7 +27,7 @@ def add_machine(request):
             Community = form.cleaned_data['Community'] 
             
             Machine.objects.create(name=name, IPAdresse=IP, SNMPType=TypeSNMP, Community=Community)
-            return redirect("/configuration")
+            return redirect("/")
         else:
             print(form.errors)
 
@@ -50,7 +55,7 @@ def add_user(request):
                 user.is_staff = True
                 user.save()
 
-            return redirect("/configuration")
+            return redirect("/")
         else:
             print(form.errors)
 
@@ -94,7 +99,7 @@ def delete_machine(request, machine_id):
     if request.method == 'POST':
         machine.delete()
         return redirect('liste_machines')
-    return render(request, 'confirm_delete.html', {'object': machine})
+    return render(request, 'confirm_delete_machines.html', {'object': machine})
 
 @login_required
 def delete_user(request, user_id):
@@ -102,7 +107,7 @@ def delete_user(request, user_id):
     if request.method == 'POST':
         user.delete()
         return redirect('liste_users')
-    return render(request, 'confirm_delete.html', {'object': user})
+    return render(request, 'confirm_delete_users.html', {'object': user})
 
 @login_required
 def edit_user(request, user_id):
@@ -134,3 +139,28 @@ def edit_user(request, user_id):
         })
     
     return render(request, 'edit_user.html', {'form': form})
+
+@login_required
+def json_test(request):
+    chemin_fichier_json = os.path.join(settings.MEDIA_ROOT, 'config.json')
+    
+    with open(chemin_fichier_json, 'r') as fichier:
+        contenu = json.load(fichier)
+        for oid in contenu["oids"]:
+            deja_existant = OID.objects.filter(name=oid).exists()
+            if not deja_existant :
+                OID.objects.create(name=oid, oid=contenu["oids"][oid]).save()
+        
+    response = HttpResponse(content_type='application/json')
+    response.write(contenu)
+    
+    return response
+
+
+
+
+
+
+
+
+

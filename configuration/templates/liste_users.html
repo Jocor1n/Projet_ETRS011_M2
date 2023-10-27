@@ -1,3 +1,4 @@
+{% include 'template.html' %} 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,29 +8,27 @@
 </head>
 <body>
     <h1>Liste des Utilisateurs</h1>
-    <a href="{% url 'add_user' %}">Ajouter un Utilisateur</a>
-    <table border="1">
+    <a class="btn btn-primary" href="{% url 'add_user' %}">Ajouter un Utilisateur</a>
+    <table class="table">
         <thead>
             <tr>
-                <th>Suppressions</th>
-                <th>Editions</th>
-                <th>ID</th>
-                <th>Login</th>
-                <th>Password</th>
-                <th>Nom de famille</th>
-                <th>Prénom</th>
-                <th>Est admin ?</th>
-                <th>Mail</th>
+                <th scope="col" >Suppressions</th>
+                <th scope="col" >Editions</th>
+                <th scope="col" >ID</th>
+                <th scope="col" >Login</th>
+                <th scope="col" >Nom de famille</th>
+                <th scope="col" >Prénom</th>
+                <th scope="col" >Est admin ?</th>
+                <th scope="col" >Mail</th>
             </tr>
         </thead>
         <tbody>
             {% for user in users %}
             <tr>
-                <td><a href="{% url 'delete_user' user.id %}">Supprimer</a></td>
-                <td><a href="{% url 'edit_user' user.id %}">Editer</a></td>
+                <td><a class="btn btn-danger" href="{% url 'delete_user' user.id %}">Supprimer</a></td>
+                <td><a class="btn btn-secondary" href="{% url 'edit_user' user.id %}">Editer</a></td>
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
                 <td>{{ user.last_name }}</td>
                 <td>{{ user.first_name }}</td>
                 <td>{{ user.is_superuser }}</td>
@@ -38,6 +37,5 @@
             {% endfor %}
         </tbody>
     </table>
-     <a href="{% url 'index' %}">Retour au menu principal</a>
 </body>
 </html>

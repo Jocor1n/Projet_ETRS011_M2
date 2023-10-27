@@ -1,0 +1,58 @@
+{
+    "oids": {
+        "sysName": "1.3.6.1.2.1.1.1.0",
+        "diskSpace": "1.3.6.1.4.1.2021.9.1.9.1",
+        "ifOperStatus": "1.3.6.1.2.1.2.2.1.8.1",
+        "sysUpTime": "1.3.6.1.2.1.1.3.0",
+        "networkSpeed": "1.3.6.1.2.1.2.2.1.5.1",
+        "cpuUsage": "1.3.6.1.4.1.2021.10.1.3.1",
+        "ramMax": "1.3.6.1.4.1.2021.4.5.0",
+        "ramDispo": "1.3.6.1.4.1.2021.4.6.0"
+    },
+    "machines": [
+        {
+            "name": "MachineManager",
+            "ip": "20.56.131.151"
+        },
+        {
+            "name": "MachineTest",
+            "ip": "20.244.22.230"
+        },
+        {
+            "name": "localhost",
+            "ip": "localhost"
+        }
+    ],
+    "snmp_results": {
+        "MachineManager": {
+            "sysName": "Linux ServeurWeb 5.15.0-1049-azure #56~20.04.1-Ubuntu SMP Thu Sep 21 13:01:28 UTC 2023 x86_64",
+            "diskSpace": "",
+            "ifOperStatus": "1",
+            "sysUpTime": "338951",
+            "networkSpeed": "10000000",
+            "cpuUsage": "0.12",
+            "ramMax": "3955976",
+            "ramDispo": "272876"
+        },
+        "MachineTest": {
+            "sysName": "Linux MachineTest1 5.15.0-1045-azure #52~20.04.1-Ubuntu SMP Fri Aug 18 13:12:32 UTC 2023 x86_64",
+            "diskSpace": "",
+            "ifOperStatus": "1",
+            "sysUpTime": "151119",
+            "networkSpeed": "10000000",
+            "cpuUsage": "0.00",
+            "ramMax": "348940",
+            "ramDispo": "25080"
+        },
+        "localhost": {
+            "sysName": "Linux ServeurWeb 5.15.0-1049-azure #56~20.04.1-Ubuntu SMP Thu Sep 21 13:01:28 UTC 2023 x86_64",
+            "diskSpace": "",
+            "ifOperStatus": "1",
+            "sysUpTime": "339234",
+            "networkSpeed": "10000000",
+            "cpuUsage": "0.12",
+            "ramMax": "3955976",
+            "ramDispo": "272876"
+        }
+    }
+}

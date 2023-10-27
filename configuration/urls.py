@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("json_test", views.json_test, name="json_test"),
     path("add_machine", views.add_machine, name="add_machine"),
     path("add_user", views.add_user, name="add_user"),
     path('machines', views.liste_machines, name='liste_machines'),

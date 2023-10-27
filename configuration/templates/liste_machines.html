@@ -1,3 +1,4 @@
+{% include 'template.html' %} 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,8 +8,8 @@
 </head>
 <body>
     <h1>Liste des Machines</h1>
-    <a href="{% url 'add_machine' %}">Ajouter une Machine</a></li>
-    <table border="1">
+    <a class="btn btn-primary" href="{% url 'add_machine' %}">Ajouter une Machine</a></li>
+    <table class="table">
         <thead>
             <tr>
                 <th>Suppressions</th>
@@ -24,8 +25,8 @@
         <tbody>
             {% for machine in machines %}
             <tr>
-                <td><a href="{% url 'delete_machine' machine.id %}">Supprimer</a></td>
-                <td><a href="{% url 'edit_machine' machine.id %}">Editer</a></td>
+                <td><a class="btn btn-danger" href="{% url 'delete_machine' machine.id %}">Supprimer</a></td>
+                <td><a class="btn btn-secondary" href="{% url 'edit_machine' machine.id %}">Editer</a></td>
                 <td>{{ machine.id }}</td>
                 <td>{{ machine.name }}</td>
                 <td>{{ machine.IPAdresse }}</td>
@@ -36,6 +37,5 @@
             {% endfor %}    
         </tbody>
     </table>
-    <a href="{% url 'index' %}">Retour au menu principal</a>
 </body>
 </html>

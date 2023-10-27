@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class Utilisateur(models.Model):
     login = models.CharField(max_length=255)
@@ -21,11 +22,13 @@ class Machine(models.Model):
     Community = models.CharField(max_length=255, default=None)
 
 class OID(models.Model):
+    name = models.CharField(max_length=255)
     oid = models.CharField(max_length=255)
     
 class SurveillanceManager(models.Model):
     idMachine = models.ForeignKey(Machine, on_delete=models.CASCADE)
     information_type = models.CharField(max_length=255)
+    date = models.DateField(default=datetime.datetime.now())
     data = models.CharField(max_length=255)
 
 class Graphique(models.Model):

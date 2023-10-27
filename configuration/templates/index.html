@@ -6,11 +6,6 @@
     <title>Menu Principal</title>
 </head>
 <body>
-    <h1>Menu Principal</h1>
-    <ul>
-        <li><a href="{% url 'logout_user' %}">Se déconnecter</a></li>
-        <li><a href="{% url 'liste_machines' %}">Liste des Machines</a></li>
-        <li><a href="{% url 'liste_users' %}">Liste des Utilisateurs</a></li>
-    </ul>
+    {% include 'template.html' %} 
 </body>
 </html>

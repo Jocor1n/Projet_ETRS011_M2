@@ -1,3 +1,4 @@
+{% include 'template.html' %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
     <form method="post">
         {% csrf_token %}
         <button type="submit">Oui, supprimer</button>
-        <a href="{% url 'liste_users' %}">Non, annuler</a>
+        <a class="btn btn-danger" href="{% url 'liste_machines' %}">Non, annuler</a>
     </form>
 </body>
 </html>
