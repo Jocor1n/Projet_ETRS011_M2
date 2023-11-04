@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from django.utils import timezone
 
 class Utilisateur(models.Model):
     login = models.CharField(max_length=255)
@@ -28,7 +28,7 @@ class OID(models.Model):
 class SurveillanceManager(models.Model):
     idMachine = models.ForeignKey(Machine, on_delete=models.CASCADE)
     information_type = models.CharField(max_length=255)
-    date = models.DateField(default=datetime.datetime.now())
+    date = models.DateTimeField(default=timezone.now)
     data = models.CharField(max_length=255)
 
 class Graphique(models.Model):

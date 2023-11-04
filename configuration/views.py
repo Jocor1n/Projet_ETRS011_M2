@@ -8,6 +8,7 @@ from django.conf import settings
 import os
 import json
 import pprint
+from pysnmp.hlapi import SnmpEngine, CommunityData, UdpTransportTarget, ContextData, ObjectType, ObjectIdentity, getCmd
 
 
 @login_required
@@ -110,6 +111,12 @@ def delete_user(request, user_id):
     return render(request, 'confirm_delete_users.html', {'object': user})
 
 @login_required
+def donnees_machines(request):
+    donnees = SurveillanceManager.objects.all().order_by('idMachine__name', 'information_type', 'date')
+    return render(request, 'liste_donnees.html', {'donnees': donnees})
+
+
+@login_required
 def edit_user(request, user_id):
     user = get_object_or_404(User, id=user_id)
     if request.method == 'POST':
@@ -140,21 +147,71 @@ def edit_user(request, user_id):
     
     return render(request, 'edit_user.html', {'form': form})
 
+
+def snmp_get(oid, host='localhost', community='public', timeout=1):
+    errorIndication, errorStatus, errorIndex, varBinds = next(
+        getCmd(SnmpEngine(),
+               CommunityData(community),
+               UdpTransportTarget((host, 161), timeout=timeout),
+               ContextData(),
+               ObjectType(ObjectIdentity(oid)))
+    )
+
+    if errorIndication:
+        print(f"Erreur SNMP: {errorIndication}")
+        return None
+    elif errorStatus:
+        print(f"Erreur SNMP: {errorStatus} at {errorIndex}")
+        return None
+    else:
+        return varBinds[0][1]    
+
 @login_required
 def json_test(request):
     chemin_fichier_json = os.path.join(settings.MEDIA_ROOT, 'config.json')
     
     with open(chemin_fichier_json, 'r') as fichier:
         contenu = json.load(fichier)
+        oids = contenu.get("oids", {})  # Obtenez les OID à partir du fichier JSON
+        machines = contenu.get("machines", [])
         for oid in contenu["oids"]:
             deja_existant = OID.objects.filter(name=oid).exists()
             if not deja_existant :
                 OID.objects.create(name=oid, oid=contenu["oids"][oid]).save()
-        
-    response = HttpResponse(content_type='application/json')
-    response.write(contenu)
+    snmp_results = {}
+    for machine in machines:
+        machine_name = machine.get("name")
+        machine_ip = machine.get("ip")
+        results = {}
+            # Affichez le nom de la machine et l'adresse IP
+        print(f"Machine: {machine_name}; Adresse IP : {machine_ip}")
+            # Utilisez la fonction snmp_get avec l'adresse IP de la machine
+        for oid_name, oid_value in oids.items():
+            result = snmp_get(oid_value, host=machine_ip)
+            # print(f"result : {result} oidname :{oid_name} oid_value : {oid_value}")
+            if result is not None:
+                print(f"{oid_name}: {result}")
+                results[oid_name] = str(result)  # Convertissez la valeur en chaîne si nécessaire
+            snmp_results[machine_name] = results
+            print("\n")
     
-    return response
+    contenu["snmp_results"] = snmp_results
+
+        # Ensuite, réécrivez le fichier JSON avec les données mises à jour
+    with open(chemin_fichier_json, 'w') as fichier:
+        json.dump(contenu, fichier, indent=4)       
+        
+    with open(chemin_fichier_json, 'r') as fichier:
+        contenu = json.load(fichier)
+        for a_oid in OID.objects.all() :
+            for machine in contenu["snmp_results"]:
+                if Machine.objects.filter(name=machine).exists():
+                    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+        
+    #response = HttpResponse(content_type='application/json')
+    # response.write(contenu)
+    
+    return redirect('donnees_machines')
 
 
 

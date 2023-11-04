@@ -1,0 +1,33 @@
+{% include 'template.html' %} 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des données machines</title>
+</head>
+<body>
+    <a href="{% url 'json_test' %}">Exécuter ma méthode</a>
+    <h1>Liste des données machines</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" >ID</th>
+                <th scope="col" >Type d'information</th>
+                <th scope="col" >date</th>
+                <th scope="col" >Données</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for donnee in donnees %}
+            <tr>
+                <td>{{ donnee.idMachine.name }}</td>
+                <td>{{ donnee.information_type }}</td>
+                <td>{{ donnee.date }}</td>
+                <td>{{ donnee.data }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
