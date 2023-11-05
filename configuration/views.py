@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from .models import Machine, Utilisateur, OID, SurveillanceManager, Graphique, Logs
+from .models import Machine, OID, SurveillanceManager, Graphique, Logs
 from .forms import MachineForm, UtilisateurForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -7,7 +6,6 @@ from django.contrib.auth.models import User
 from django.conf import settings 
 import os
 import json
-import pprint
 from pysnmp.hlapi import SnmpEngine, CommunityData, UdpTransportTarget, ContextData, ObjectType, ObjectIdentity, getCmd
 
 
@@ -112,8 +110,25 @@ def delete_user(request, user_id):
 
 @login_required
 def donnees_machines(request):
-    donnees = SurveillanceManager.objects.all().order_by('idMachine__name', 'information_type', 'date')
-    return render(request, 'liste_donnees.html', {'donnees': donnees})
+    machines_data = []
+    machines = Machine.objects.all()
+    
+    for machine in machines:
+        data = {
+            'name': machine.name,
+            'types': {},
+        }
+        information_types = SurveillanceManager.objects.filter(idMachine=machine).values_list('information_type', flat=True).distinct()
+        for info_type in information_types:
+            if info_type != "sysName" and info_type !="ifOperStatus" and info_type !="networkSpeed":
+                data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type)
+            else :
+                data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type).latest("date")
+            
+        machines_data.append(data)
+            
+    return render(request, 'liste_donnees.html', {'machines_data': machines_data})
+
 
 
 @login_required
@@ -146,7 +161,6 @@ def edit_user(request, user_id):
         })
     
     return render(request, 'edit_user.html', {'form': form})
-
 
 def snmp_get(oid, host='localhost', community='public', timeout=1):
     errorIndication, errorStatus, errorIndex, varBinds = next(
@@ -183,21 +197,17 @@ def json_test(request):
         machine_name = machine.get("name")
         machine_ip = machine.get("ip")
         results = {}
-            # Affichez le nom de la machine et l'adresse IP
         print(f"Machine: {machine_name}; Adresse IP : {machine_ip}")
-            # Utilisez la fonction snmp_get avec l'adresse IP de la machine
         for oid_name, oid_value in oids.items():
             result = snmp_get(oid_value, host=machine_ip)
-            # print(f"result : {result} oidname :{oid_name} oid_value : {oid_value}")
             if result is not None:
                 print(f"{oid_name}: {result}")
-                results[oid_name] = str(result)  # Convertissez la valeur en chaîne si nécessaire
+                results[oid_name] = str(result)
             snmp_results[machine_name] = results
             print("\n")
     
     contenu["snmp_results"] = snmp_results
 
-        # Ensuite, réécrivez le fichier JSON avec les données mises à jour
     with open(chemin_fichier_json, 'w') as fichier:
         json.dump(contenu, fichier, indent=4)       
         
@@ -207,9 +217,6 @@ def json_test(request):
             for machine in contenu["snmp_results"]:
                 if Machine.objects.filter(name=machine).exists():
                     SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
-        
-    #response = HttpResponse(content_type='application/json')
-    # response.write(contenu)
     
     return redirect('donnees_machines')
 

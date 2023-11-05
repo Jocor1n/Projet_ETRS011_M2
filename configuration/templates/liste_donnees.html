@@ -1,33 +1,103 @@
-{% include 'template.html' %} 
-<!DOCTYPE html>
-<html lang="fr">
+{% include 'template.html' %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des données machines</title>
+<script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-    <a href="{% url 'json_test' %}">Exécuter ma méthode</a>
-    <h1>Liste des données machines</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col" >ID</th>
-                <th scope="col" >Type d'information</th>
-                <th scope="col" >date</th>
-                <th scope="col" >Données</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for donnee in donnees %}
-            <tr>
-                <td>{{ donnee.idMachine.name }}</td>
-                <td>{{ donnee.information_type }}</td>
-                <td>{{ donnee.date }}</td>
-                <td>{{ donnee.data }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="specific-container mt-5">
+    <a class="btn btn-outline-primary" href="{% url 'json_test' %}">Appeler la méthode</a>
+    {% for machine in machines_data %}
+    <h2>{{ machine.name }}</h2>
+    {% for information_type, data_entries in machine.types.items %}
+    <h5>{{ information_type }}</h5>
+    {% if information_type == "ramDispo" %}  
+    <div class="graph{{ machine.name }}"></div>
+    <script>
+    (function() {
+        // Imaginons que c'est votre donnée récupérée de Django
+        const data = [
+          {% for entry in data_entries %}
+            { date: "{{ entry.date|date:"Y-m-d H:i" }}", ramMax: 3955968, ramDispo: {{entry.data}} },
+          {% endfor%}
+        ];
+        const margin = {top: 10, right: 30, bottom: 30, left: 100},
+            width = 1460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+        // Ajouter un SVG au div avec une légère marge
+        const svg = d3.select(".graph{{ machine.name }}")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Ajouter l'axe X
+        const x = d3.scaleBand()
+            .range([0, width])
+            .domain(data.map(d => d.date))
+            .padding(0.2);
+        
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x));
+
+        // Ajouter l'axe Y
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.ramMax)])
+            .range([height, 0]);
+        
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        // Barres pour ramMax
+        svg.selectAll(".bar-max")
+            .data(data)
+            .join("rect")
+            .attr("class", "bar-max")
+            .attr("x", d => x(d.date))
+            .attr("y", d => y(d.ramMax))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.ramMax))
+            .attr("fill", "#ca6f96");
+
+        // Barres pour ramDispo
+        svg.selectAll(".bar-dispo")
+            .data(data)
+            .join("rect")
+            .attr("class", "bar-dispo")
+            .attr("x", d => x(d.date))
+            .attr("y", d => y(d.ramDispo))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.ramDispo))
+            .attr("fill", "#6fca9f");
+         })();   
+    </script>
+    {% endif %}
+    {% if data_entries.exists %}
+    {% for entry in data_entries %}
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <small class="text-muted">{{ entry.date|date:"Y-m-d H:i" }}</small>
+        </div>
+        <div class="col-md-10">
+            {{ entry.data }}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <small class="text-muted">{{ data_entries.date|date:"Y-m-d H:i" }}</small>
+        </div>
+        <div class="col-md-10">
+            {{ data_entries.data }}
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+</div>
 </body>
-</html>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKx5Ckc5/ue7z10hL0MkEJw4vI1Gvi8Tbsk5pyt4lTw5PUb2MGagf1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-z+kAwMy0oD9PlzPGyHtioTFzScPtm5A8zsnL1GzsyQ3c/yAozZpk1smkKyTFiII3" crossorigin="anonymous"></script>
