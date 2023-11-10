@@ -1,16 +1,19 @@
 {% include 'template.html' %}
 <head>
 <script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
+
 <div class="specific-container mt-5">
-    <a class="btn btn-outline-primary" href="{% url 'json_test' %}">Appeler la méthode</a>
     {% for machine in machines_data %}
     <h2>{{ machine.name }}</h2>
     {% for information_type, data_entries in machine.types.items %}
     <h5>{{ information_type }}</h5>
     {% if information_type == "ramDispo" %}  
     <div class="graph{{ machine.name }}"></div>
+
     <script>
     (function() {
         // Imaginons que c'est votre donnée récupérée de Django
@@ -72,6 +75,61 @@
             .attr("fill", "#6fca9f");
          })();   
     </script>
+
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <script>
+        const DATA_COUNT = 7;
+        const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
+
+        const labels = Utils.months({count: 7});
+        const data = {
+        labels: labels,
+        datasets: [
+            {
+            label: 'Dataset 1',
+            data: Utils.numbers(NUMBER_CFG),
+            backgroundColor: Utils.CHART_COLORS.red,
+            },
+            {
+            label: 'Dataset 2',
+            data: Utils.numbers(NUMBER_CFG),
+            backgroundColor: Utils.CHART_COLORS.blue,
+            },
+            {
+            label: 'Dataset 3',
+            data: Utils.numbers(NUMBER_CFG),
+            backgroundColor: Utils.CHART_COLORS.green,
+            },
+        ]
+        };
+        
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+              plugins: {
+                title: {
+                  display: true,
+                  text: 'Chart.js Bar Chart - Stacked'
+                },
+              },
+              responsive: true,
+              scales: {
+                x: {
+                  stacked: true,
+                },
+                y: {
+                  stacked: true
+                }
+              }
+            }
+          };
+
+      </script>
+
     {% endif %}
     {% if data_entries.exists %}
     {% for entry in data_entries %}

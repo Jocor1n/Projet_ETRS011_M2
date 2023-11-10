@@ -1,0 +1,34 @@
+{% include 'template.html' %} 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Logs</title>
+</head>
+<body>
+    <h1>Liste des Logs</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" >Date du log</th>
+                <th scope="col" >Machine</th>
+                <th scope="col" >Type du log</th>
+                <th scope="col" >Sévérité</th>
+                <th scope="col" >Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.date }}</td>
+                <td>{{ log.idMachine.name }}</td>
+                <td>{{ log.type_log }}</td>
+                <td>{{ log.is_error }}</td>
+                <td>{{ log.informations }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

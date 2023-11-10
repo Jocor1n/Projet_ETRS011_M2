@@ -23,15 +23,9 @@ class SurveillanceManager(models.Model):
     date = models.DateTimeField(default=timezone.now)
     data = models.CharField(max_length=255)
 
-class Graphique(models.Model):
-    idSurveillance = models.ForeignKey(SurveillanceManager, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    x_label = models.CharField(max_length=255)
-    y_label = models.CharField(max_length=255)
-    x_info = models.CharField(max_length=255)
-    y_info = models.CharField(max_length=255)
-
 class Logs(models.Model):
+    date = models.DateTimeField(default=timezone.now)
     idMachine = models.ForeignKey(Machine, on_delete=models.CASCADE)
+    type_log = models.CharField(max_length=255)
     informations = models.CharField(max_length=255)
     is_error = models.BooleanField(default=False)

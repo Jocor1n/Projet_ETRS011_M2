@@ -1,0 +1,1315 @@
+Traceback (most recent call last):
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 22, in <module>
+    main()
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 142, in run_job
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 71
+    
+    ^
+SyntaxError: unexpected EOF while parsing
+Traceback (most recent call last):
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 22, in <module>
+    main()
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 142, in run_job
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 71
+    
+    ^
+SyntaxError: unexpected EOF while parsing
+Traceback (most recent call last):
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 22, in <module>
+    main()
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 142, in run_job
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 71
+    
+    ^
+SyntaxError: unexpected EOF while parsing
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 175557
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.98
+
+
+ramMax: 3955968
+
+
+ramDispo: 365624
+
+
+ifInOctets-int1: 147573336
+
+
+ifInOctets-int2: 32524446
+
+
+ifOutOctets-int1: 147573336
+
+
+ifOutOctets-int2: 150689500
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 829439
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.07
+
+
+ramMax: 348924
+
+
+ramDispo: 40324
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 5425575
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 13086748
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 181549
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.57
+
+
+ramMax: 3955968
+
+
+ramDispo: 343540
+
+
+ifInOctets-int1: 150940535
+
+
+ifInOctets-int2: 32857039
+
+
+ifOutOctets-int1: 151201390
+
+
+ifOutOctets-int2: 154315321
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 835428
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.02
+
+
+ramMax: 348924
+
+
+ramDispo: 39260
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 5468681
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 13144521
+
+
+Traceback (most recent call last):
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 22, in <module>
+    main()
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 453, in execute
+    self.check()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/supervision/urls.py", line 22, in <module>
+    path("menu_principal/", include("configuration.urls")),
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/urls.py", line 7, in <module>
+    path("json_test", views.json_test, name="json_test"),
+AttributeError: module 'configuration.views' has no attribute 'json_test'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 241597
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.29
+
+
+ramMax: 3955968
+
+
+ramDispo: 297548
+
+
+ifInOctets-int1: 188800425
+
+
+ifInOctets-int2: 39762925
+
+
+ifOutOctets-int1: 188800425
+
+
+ifOutOctets-int2: 192503573
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 895474
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.03
+
+
+ramMax: 348924
+
+
+ramDispo: 37992
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 5879691
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 13706965
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 271597
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.25
+
+
+ramMax: 3955968
+
+
+ramDispo: 277640
+
+
+ifInOctets-int1: 214227031
+
+
+ifInOctets-int2: 53340666
+
+
+ifOutOctets-int1: 214237081
+
+
+ifOutOctets-int2: 219057522
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 925473
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.02
+
+
+ramMax: 348924
+
+
+ramDispo: 37428
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 6083853
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 13987301
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 301588
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.26
+
+
+ramMax: 3955968
+
+
+ramDispo: 227100
+
+
+ifInOctets-int1: 228076409
+
+
+ifInOctets-int2: 56991114
+
+
+ifOutOctets-int1: 228076409
+
+
+ifOutOctets-int2: 233559866
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 955469
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 37004
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 6289791
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 14265868
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 331578
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.38
+
+
+ramMax: 3955968
+
+
+ramDispo: 283404
+
+
+ifInOctets-int1: 240093630
+
+
+ifInOctets-int2: 58137618
+
+
+ifOutOctets-int1: 240093630
+
+
+ifOutOctets-int2: 245376536
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 985455
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 36608
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 6493672
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 14543943
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 361567
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.37
+
+
+ramMax: 3955968
+
+
+ramDispo: 273232
+
+
+ifInOctets-int1: 254224592
+
+
+ifInOctets-int2: 60160023
+
+
+ifOutOctets-int1: 254224592
+
+
+ifOutOctets-int2: 259809949
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1015444
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 36184
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 6697833
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 14822408
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 391558
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.41
+
+
+ramMax: 3955968
+
+
+ramDispo: 200872
+
+
+ifInOctets-int1: 262529181
+
+
+ifInOctets-int2: 61225082
+
+
+ifOutOctets-int1: 262529181
+
+
+ifOutOctets-int2: 268138884
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1045435
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 35712
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 6901232
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 15099651
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 421554
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.16
+
+
+ramMax: 3955968
+
+
+ramDispo: 197060
+
+
+ifInOctets-int1: 275061930
+
+
+ifInOctets-int2: 62429341
+
+
+ifOutOctets-int1: 275061930
+
+
+ifOutOctets-int2: 281642632
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1075432
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 35328
+
+
+ifInOctets-int1: 6692
+
+
+ifInOctets-int2: 7106826
+
+
+ifOutOctets-int1: 6692
+
+
+ifOutOctets-int2: 15378080
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 451541
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.20
+
+
+ramMax: 3955968
+
+
+ramDispo: 253432
+
+
+ifInOctets-int1: 277031131
+
+
+ifInOctets-int2: 62869899
+
+
+ifOutOctets-int1: 277031131
+
+
+ifOutOctets-int2: 283581935
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1105419
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 33600
+
+
+ifInOctets-int1: 7310
+
+
+ifInOctets-int2: 7328520
+
+
+ifOutOctets-int1: 7310
+
+
+ifOutOctets-int2: 15679548
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 10, in json_test
+    contenu["snmp_results"] = snmp_results
+UnboundLocalError: local variable 'snmp_results' referenced before assignment
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 511614
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.80
+
+
+ramMax: 3955968
+
+
+ramDispo: 165804
+
+
+ifInOctets-int1: 301924018
+
+
+ifInOctets-int2: 64937052
+
+
+ifOutOctets-int1: 301924018
+
+
+ifOutOctets-int2: 308889498
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1165518
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 37188
+
+
+ifInOctets-int1: 7310
+
+
+ifInOctets-int2: 7751445
+
+
+ifOutOctets-int1: 7310
+
+
+ifOutOctets-int2: 16860866
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 541663
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 1.38
+
+
+ramMax: 3955968
+
+
+ramDispo: 154860
+
+
+ifInOctets-int1: 314728957
+
+
+ifInOctets-int2: 67489858
+
+
+ifOutOctets-int1: 314728957
+
+
+ifOutOctets-int2: 322254801
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1195581
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.04
+
+
+ramMax: 348924
+
+
+ramDispo: 36744
+
+
+ifInOctets-int1: 7310
+
+
+ifInOctets-int2: 7954962
+
+
+ifOutOctets-int1: 7310
+
+
+ifOutOctets-int2: 17138127
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 571611
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.71
+
+
+ramMax: 3955968
+
+
+ramDispo: 174208
+
+
+ifInOctets-int1: 330247126
+
+
+ifInOctets-int2: 69829786
+
+
+ifOutOctets-int1: 330247126
+
+
+ifOutOctets-int2: 338478035
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1225489
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.00
+
+
+ramMax: 348924
+
+
+ramDispo: 36492
+
+
+ifInOctets-int1: 7310
+
+
+ifInOctets-int2: 8158992
+
+
+ifOutOctets-int1: 7310
+
+
+ifOutOctets-int2: 17416466
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 601593
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.39
+
+
+ramMax: 3955968
+
+
+ramDispo: 150572
+
+
+ifInOctets-int1: 340649710
+
+
+ifInOctets-int2: 72054914
+
+
+ifOutOctets-int1: 340649710
+
+
+ifOutOctets-int2: 349353611
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1255478
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.08
+
+
+ramMax: 348924
+
+
+ramDispo: 36340
+
+
+ifInOctets-int1: 7310
+
+
+ifInOctets-int2: 8364635
+
+
+ifOutOctets-int1: 7310
+
+
+ifOutOctets-int2: 17694777
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 9, in json_test
+    contenu = json.load(fichier)
+UnboundLocalError: local variable 'fichier' referenced before assignment
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 36, in json_test
+    machine_name = machine.get("name")
+AttributeError: 'Machine' object has no attribute 'get'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 691582
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.42
+
+
+ramMax: 3955968
+
+
+ramDispo: 152408
+
+
+ifInOctets-int1: 379036084
+
+
+ifInOctets-int2: 75080734
+
+
+ifOutOctets-int1: 379036084
+
+
+ifOutOctets-int2: 387923647
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 1345461
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.05
+
+
+ramMax: 348924
+
+
+ramDispo: 34848
+
+
+ifInOctets-int1: 7310
+
+
+ifInOctets-int2: 8973333
+
+
+ifOutOctets-int1: 7310
+
+
+ifOutOctets-int2: 18528377
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 691992
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.46
+
+
+ramMax: 3955968
+
+
+ramDispo: 152408
+
+
+ifInOctets-int1: 379050679
+
+
+ifInOctets-int2: 75092760
+
+
+ifOutOctets-int1: 379050679
+
+
+ifOutOctets-int2: 387938227
+
+

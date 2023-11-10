@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'configuration.apps.ConfigurationConfig',
+    'configuration',
     'loginpage',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -78,10 +79,23 @@ WSGI_APPLICATION = 'supervision.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        'ENGINE': 'django.db.backends.mysql',
+
+        'NAME': 'supervision',
+
+        'USER': 'admin',
+
+        'PASSWORD': 'password',
+
+        'HOST': 'localhost',  # Set to the address of your MySQL instance.
+
+        'PORT': '3306',       # Default port for MySQL.
+
     }
+
 }
 
 # Password validation
@@ -102,6 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CRONJOBS = [
+('*/5 * * * *', 'configuration.json_interroge.json_test', '>> ' + os.path.join(BASE_DIR,'log/debug7.log' + ' 2>&1 '))
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
