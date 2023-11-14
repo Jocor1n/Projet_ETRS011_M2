@@ -1,0 +1,45 @@
+{% include 'template.html' %} 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Graphiques</title>
+</head>
+<body>
+    <h1>Liste des Graphiques</h1>
+    <a class="btn btn-primary" href="{% url 'add_graphique' %}">Ajouter un graphique</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" >Suppressions</th>
+                <th scope="col" >Editions</th>
+                <th scope="col" >Nom</th>
+                <th scope="col" >Type de graphique</th>
+                <th scope="col" >Axe x</th>
+                <th scope="col" >Axe y</th>
+                <th scope="col" >ordre</th>
+                <th scope="col" >OID 1</th>
+                <th scope="col" >OID 2</th>
+                <th scope="col" >Valeur max</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for graphique in graphiques %}
+            <tr>
+                <td><a class="btn btn-danger" href="{% url 'delete_graphique' graphique.id %}">Supprimer</a></td>
+                <td><a class="btn btn-secondary" href="{% url 'edit_graphique' graphique.id %}">Editer</a></td>
+                <td>{{ graphique.name }}</td>
+                <td>{{ graphique.get_GraphiqueType_display }}</td>
+                <td>{{ graphique.axex|default_if_none:'' }}</td>
+                <td>{{ graphique.axey|default_if_none:'' }}</td>
+                <td>{{ graphique.ordre }}</td>
+                <td>{{ graphique.OID1.name }}</td>
+                <td>{{ graphique.OID2.name }}</td>
+                <td>{{ graphique.valeur_max }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

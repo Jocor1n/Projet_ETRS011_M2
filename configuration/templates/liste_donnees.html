@@ -1,4 +1,7 @@
 {% include 'template.html' %}
+{% load custom_tags %}
+{% load my_custom_filters %}.
+
 <head>
 <script src="https://d3js.org/d3.v6.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -6,154 +9,67 @@
 </head>
 <body>
 
-<div class="specific-container mt-5">
-    {% for machine in machines_data %}
-    <h2>{{ machine.name }}</h2>
-    {% for information_type, data_entries in machine.types.items %}
-    <h5>{{ information_type }}</h5>
-    {% if information_type == "ramDispo" %}  
-    <div class="graph{{ machine.name }}"></div>
-
-    <script>
-    (function() {
-        // Imaginons que c'est votre donnée récupérée de Django
-        const data = [
-          {% for entry in data_entries %}
-            { date: "{{ entry.date|date:"Y-m-d H:i" }}", ramMax: 3955968, ramDispo: {{entry.data}} },
-          {% endfor%}
-        ];
-        const margin = {top: 10, right: 30, bottom: 30, left: 100},
-            width = 1460 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
-
-        // Ajouter un SVG au div avec une légère marge
-        const svg = d3.select(".graph{{ machine.name }}")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
-
-        // Ajouter l'axe X
-        const x = d3.scaleBand()
-            .range([0, width])
-            .domain(data.map(d => d.date))
-            .padding(0.2);
-        
-        svg.append("g")
-            .attr("transform", `translate(0,${height})`)
-            .call(d3.axisBottom(x));
-
-        // Ajouter l'axe Y
-        const y = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.ramMax)])
-            .range([height, 0]);
-        
-        svg.append("g")
-            .call(d3.axisLeft(y));
-
-        // Barres pour ramMax
-        svg.selectAll(".bar-max")
-            .data(data)
-            .join("rect")
-            .attr("class", "bar-max")
-            .attr("x", d => x(d.date))
-            .attr("y", d => y(d.ramMax))
-            .attr("width", x.bandwidth())
-            .attr("height", d => height - y(d.ramMax))
-            .attr("fill", "#ca6f96");
-
-        // Barres pour ramDispo
-        svg.selectAll(".bar-dispo")
-            .data(data)
-            .join("rect")
-            .attr("class", "bar-dispo")
-            .attr("x", d => x(d.date))
-            .attr("y", d => y(d.ramDispo))
-            .attr("width", x.bandwidth())
-            .attr("height", d => height - y(d.ramDispo))
-            .attr("fill", "#6fca9f");
-         })();   
-    </script>
-
-    <div>
-        <canvas id="myChart"></canvas>
-      </div>
-
-      <script>
-        const DATA_COUNT = 7;
-        const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
-
-        const labels = Utils.months({count: 7});
-        const data = {
-        labels: labels,
-        datasets: [
-            {
-            label: 'Dataset 1',
-            data: Utils.numbers(NUMBER_CFG),
-            backgroundColor: Utils.CHART_COLORS.red,
-            },
-            {
-            label: 'Dataset 2',
-            data: Utils.numbers(NUMBER_CFG),
-            backgroundColor: Utils.CHART_COLORS.blue,
-            },
-            {
-            label: 'Dataset 3',
-            data: Utils.numbers(NUMBER_CFG),
-            backgroundColor: Utils.CHART_COLORS.green,
-            },
-        ]
-        };
-        
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {
-              plugins: {
-                title: {
-                  display: true,
-                  text: 'Chart.js Bar Chart - Stacked'
-                },
-              },
-              responsive: true,
-              scales: {
-                x: {
-                  stacked: true,
-                },
-                y: {
-                  stacked: true
-                }
-              }
-            }
-          };
-
-      </script>
-
-    {% endif %}
-    {% if data_entries.exists %}
-    {% for entry in data_entries %}
-    <div class="row mb-2">
-        <div class="col-md-2">
-            <small class="text-muted">{{ entry.date|date:"Y-m-d H:i" }}</small>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4" align="right"></div>
+        <form class="item" method="POST">
+        {% csrf_token %}
+        <div class="col-sm-3" align="right">
+            <select class="form-select" name="name">
+                <option value=""> Sélectionne une machine...</option>
+                {% for machine in machines %}
+                <option value="{{machine.name}}">{{machine.name}}</option>
+                {% endfor %}
+            </select>
         </div>
-        <div class="col-md-10">
-            {{ entry.data }}
+        <div class="col-4" align="left">
+              <input type="submit" value="Send Request" name="change_machine"/>
         </div>
-    </div>
-    {% endfor %}
-    {% else %}
-    <div class="row mb-2">
-        <div class="col-md-2">
-            <small class="text-muted">{{ data_entries.date|date:"Y-m-d H:i" }}</small>
+        </form>
+        <br></br>
         </div>
-        <div class="col-md-10">
-            {{ data_entries.data }}
-        </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
+        {% with True as new_row %}
+            {% for data_graphique in data_graphiques %}
+                {% if new_row %}
+                     <div class="row">
+                {% endif %}
+            
+                {% if data_graphique.0 == "Texte" %}
+                    {% if not new_row %}
+                    </div> 
+                    <div class="row">
+                    {% endif %}
+                <div class="col-sm-12 border border-secondary">
+                    <p class="text-center"> {{data_graphique.1}} : {{data_graphique.2}}</p>
+                </div>
+                </div>
+                {% update_variable True as new_row %}
+                {% endif %}
+                
+                {% if data_graphique.0 == "Fleche" %}
+                     <div class="col-sm-6 border border-secondary">
+                         <p class="text-center"> {{data_graphique.1}} </p>
+                         <p class="text-center"> {{data_graphique.2}} </p>
+                     </div>
+                      {% if new_row %}
+                           {% update_variable False as new_row %}
+                      {% else %}
+                          </div> 
+                          {% update_variable True as new_row %}
+                      {% endif %}
+                 {% endif %}
+            {% endfor%}
+        {% endwith %}
+        {% with last_sublist=data_graphiques|last %}
+            {% if last_sublist.0 == "Fleche" %}
+                {% with penultimate_sublist=data_graphiques|get_penultimate %}
+                    {% if penultimate_sublist.0 != "Fleche" %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
+  </div>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

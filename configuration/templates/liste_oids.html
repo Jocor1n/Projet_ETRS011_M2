@@ -1,0 +1,37 @@
+{% include 'template.html' %} 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des OIDS</title>
+</head>
+<body>
+    <h1>Liste des OIDS</h1>
+    <a class="btn btn-primary" href="{% url 'add_oid' %}">Ajouter un oid</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" >Suppressions</th>
+                <th scope="col" >Editions</th>
+                <th scope="col" >Nom</th>
+                <th scope="col" >OID</th>
+                <th scope="col" >Est un entier</th>
+                <th scope="col" >Est une donnée fixe</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for oid in oids %}
+            <tr>
+                <td><a class="btn btn-danger" href="{% url 'delete_oid' oid.id %}">Supprimer</a></td>
+                <td><a class="btn btn-secondary" href="{% url 'edit_oid' oid.id %}">Editer</a></td>
+                <td>{{ oid.name }}</td>
+                <td>{{ oid.oid }}</td>
+                <td>{{ oid.is_Integer }}</td>
+                <td>{{ oid.Donnee_fixe }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

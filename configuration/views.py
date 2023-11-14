@@ -1,5 +1,5 @@
-from .models import Machine, OID, SurveillanceManager, Logs
-from .forms import MachineForm, UtilisateurForm
+from .models import Machine, OID, SurveillanceManager, Logs, Graphique
+from .forms import MachineForm, UtilisateurForm, OIDForm, GraphiqueForm, GetMachineForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -13,6 +13,8 @@ from pysnmp.hlapi import SnmpEngine, CommunityData, UdpTransportTarget, ContextD
 def index(request):
     return render(request, 'index.html')
 
+""" CRUD MACHINE """
+
 @login_required
 def add_machine(request):
     form = MachineForm()  # Initialiser le formulaire pour les requêtes GET
@@ -20,17 +22,40 @@ def add_machine(request):
     if request.method == 'POST' and 'add_machine' in request.POST:
         form = MachineForm(request.POST)  
         if form.is_valid():
-            name = form.cleaned_data['name']
-            IP = form.cleaned_data['IP']  
-            TypeSNMP = form.cleaned_data['TypeSNMP']  
-            Community = form.cleaned_data['Community'] 
-            
-            Machine.objects.create(name=name, IPAdresse=IP, SNMPType=TypeSNMP, Community=Community)
+            form.save()
             return redirect("liste_machines")
         else:
             print(form.errors)
 
-    return render(request, 'configuration.html', {'form': form})
+    return render(request, 'add_configuration.html', {'form': form})
+
+@login_required
+def liste_machines(request):
+    machines = Machine.objects.all()
+    return render(request, 'liste_machines.html', {'machines': machines})
+
+@login_required
+def edit_machine(request, machine_id):
+    machine = get_object_or_404(Machine, id=machine_id)
+    if request.method == 'POST':
+        form = MachineForm(request.POST, instance=machine)
+        print(form.errors)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_machines')
+    else:
+        form = MachineForm(instance=machine)
+    return render(request, 'edit_machine.html', {'form': form})
+
+@login_required
+def delete_machine(request, machine_id):
+    machine = get_object_or_404(Machine, id=machine_id)
+    if request.method == 'POST':
+        machine.delete()
+        return redirect('liste_machines')
+    return render(request, 'confirm_delete_machines.html', {'object': machine})
+
+""" CRUD UTILISATEUR """
 
 @login_required
 def add_user(request):
@@ -58,47 +83,13 @@ def add_user(request):
         else:
             print(form.errors)
 
-    return render(request, 'utilisateur.html', {'form': form})
-
-@login_required
-def liste_machines(request):
-    machines = Machine.objects.all()
-    return render(request, 'liste_machines.html', {'machines': machines})
+    return render(request, 'add_utilisateur.html', {'form': form})
 
 @login_required
 def liste_users(request):
     users = User.objects.all()
     return render(request, 'liste_users.html', {'users': users})
 
-@login_required
-def edit_machine(request, machine_id):
-    form = MachineForm()
-    machine = get_object_or_404(Machine, id=machine_id)
-    if request.method == 'POST':
-        form = MachineForm(request.POST)
-        if form.is_valid():
-            machine.name = form.cleaned_data['name']
-            machine.IPAdresse = form.cleaned_data['IP']
-            machine.SNMPType = form.cleaned_data['TypeSNMP']
-            machine.Community = form.cleaned_data['Community']
-            machine.save()
-            return redirect('liste_machines')
-    else:
-        form = MachineForm(initial={
-        'name': machine.name,
-        'IP': machine.IPAdresse,
-        'TypeSNMP': machine.SNMPType,
-        'Community': machine.Community
-        })
-    return render(request, 'edit_machine.html', {'form': form})
-
-@login_required
-def delete_machine(request, machine_id):
-    machine = get_object_or_404(Machine, id=machine_id)
-    if request.method == 'POST':
-        machine.delete()
-        return redirect('liste_machines')
-    return render(request, 'confirm_delete_machines.html', {'object': machine})
 
 @login_required
 def delete_user(request, user_id):
@@ -108,59 +99,150 @@ def delete_user(request, user_id):
         return redirect('liste_users')
     return render(request, 'confirm_delete_users.html', {'object': user})
 
-@login_required
-def donnees_machines(request):
-    machines_data = []
-    machines = Machine.objects.all()
-    
-    for machine in machines:
-        data = {
-            'name': machine.name,
-            'types': {},
-        }
-        information_types = SurveillanceManager.objects.filter(idMachine=machine).values_list('information_type', flat=True).distinct()
-        for info_type in information_types:
-            if info_type != "sysName" and info_type !="ifOperStatus" and info_type !="networkSpeed":
-                data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type)
-            else :
-                data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type).latest("date")
-            
-        machines_data.append(data)
-            
-    return render(request, 'liste_donnees.html', {'machines_data': machines_data})
-
-
 
 @login_required
 def edit_user(request, user_id):
     user = get_object_or_404(User, id=user_id)
     if request.method == 'POST':
-        form = UtilisateurForm(request.POST)
+        form = UtilisateurForm(request.POST, instance=user)
         if form.is_valid():
-            user.username = form.cleaned_data['login']
-            
-            user.set_password(form.cleaned_data['password'])
-            
-            user.last_name = form.cleaned_data['last_name']
-            user.first_name = form.cleaned_data['first_name']
-            
-            user.is_superuser = form.cleaned_data['is_admin']
-            
-            user.email = form.cleaned_data['mail']
-            
-            user.save()
+            form.save()
             return redirect('liste_users')
     else:
-        form = UtilisateurForm(initial={
-            'login': user.username,  
-            'password': user.password,  
-            'last_name': user.last_name,
-            'first_name': user.first_name,
-            'is_admin': user.is_superuser, 
-            'mail': user.email  
-        })
+        form = UtilisateurForm(instance=user)
     
     return render(request, 'edit_user.html', {'form': form})
+
+""" CRUD OIDS """
+
+@login_required
+def add_oid(request):
+    form = OIDForm()  # Initialiser le formulaire pour les requêtes GET
+
+    if request.method == 'POST' and 'add_oid' in request.POST:
+        form = OIDForm(request.POST)  
+        if form.is_valid():
+            form.save()
+            return redirect("liste_oids")
+        else:
+            print(form.errors)
+
+    return render(request, 'add_oid.html', {'form': form})
+
+@login_required
+def liste_oids(request):
+    oids = OID.objects.all()
+    return render(request, 'liste_oids.html', {'oids': oids})
+
+@login_required
+def edit_oid(request, oid_id):
+    oid = get_object_or_404(OID, id=oid_id)
+    if request.method == 'POST':
+        form = OIDForm(request.POST , instance=oid)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_oids')
+    else:
+        form = OIDForm(instance=oid)
+    
+    return render(request, 'edit_oid.html', {'form': form})
+
+
+@login_required
+def delete_oid(request, oid_id):
+    oid = get_object_or_404(OID, id=oid_id)
+    if request.method == 'POST':
+        oid.delete()
+        return redirect('liste_oids')
+    return render(request, 'confirm_delete_oids.html', {'object': oid})
+
+""" CRUD Graphiques """
+
+@login_required
+def add_graphique(request):
+    form = GraphiqueForm()  # Initialiser le formulaire pour les requêtes GET
+
+    if request.method == 'POST' and 'add_graphique' in request.POST:
+        form = GraphiqueForm(request.POST)  
+        if form.is_valid():
+            form.save()
+            return redirect("liste_graphiques")
+        else:
+            print(form.errors)
+
+    return render(request, 'add_graphique.html', {'form': form})
+
+@login_required
+def liste_graphiques(request):
+    graphiques = Graphique.objects.all().order_by('ordre')
+    return render(request, 'liste_graphiques.html', {'graphiques': graphiques})
+
+@login_required
+def edit_graphique(request, graphique_id):
+    graphique = get_object_or_404(Graphique, id=graphique_id)
+    if request.method == 'POST':
+        form = GraphiqueForm(request.POST, instance=graphique )
+        if form.is_valid():
+            form.save()
+            return redirect('liste_graphiques')
+    else:
+        form = GraphiqueForm(instance=graphique)
+    
+    return render(request, 'edit_graphique.html', {'form': form})
+
+@login_required
+def delete_graphique(request, graphique_id):
+    graphique = get_object_or_404(Graphique, id=graphique_id)
+    if request.method == 'POST':
+        graphique.delete()
+        return redirect('liste_graphiques')
+    return render(request, 'confirm_delete_graphique.html', {'object': graphique})
+
+
+@login_required
+def donnees_machines(request):
+    machines = Machine.objects.all()
+    graphiques = Graphique.objects.all().order_by("ordre")
+    
+    machine = machines[0]
+
+    if request.method == 'POST':
+        form = GetMachineForm(request.POST)
+        if form.is_valid():
+            machine_select = form.cleaned_data['name']
+            machine = Machine.objects.all().get(name=machine_select)
+    else:
+        form = GetMachineForm()
+    
+    data = {
+        'name': machine,
+        'types': {},
+    }
+    information_types = SurveillanceManager.objects.filter(idMachine=machine).values_list('information_type', flat=True).distinct()
+    for info_type in information_types:
+        if info_type != "sysName" and info_type !="ifOperStatus" and info_type !="networkSpeed" and info_type !="sysUpTime":
+            data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type)
+        else :
+            data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type).latest("date")
+            
+    data_graphiques = []      
+    
+    for graphique in graphiques :
+        list_temp = []
+        if graphique.GraphiqueType == "Texte" :
+            list_temp.append("Texte")
+            list_temp.append(data["types"][graphique.OID1.name])
+            list_temp.append(data["types"][graphique.OID1.name].data)
+        else :
+            list_temp.append("Fleche")
+            list_temp.append(data["types"][graphique.OID1.name][0].information_type)
+            liste_queryset = []
+            for element in data["types"][graphique.OID1.name]:
+                liste_queryset.append(element.data)
+            list_temp.append(liste_queryset)
+        data_graphiques.append(list_temp)
+        
+    return render(request, 'liste_donnees.html', {'data_graphiques': data_graphiques, 'machines' : machines, 'graphiques': graphiques, 'form': form})
 
 
 @login_required
