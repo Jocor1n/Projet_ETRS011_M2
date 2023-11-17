@@ -22,4 +22,5 @@ urlpatterns = [
     path('delete_oid/<int:oid_id>/', views.delete_oid, name='delete_oid'),
     path('delete_graphique/<int:graphique_id>/', views.delete_graphique, name='delete_graphique'),
     path('donnees_machines', views.donnees_machines, name='donnees_machines'),
+    path('download-log/', views.download_log, name='download_log'),
 ]

@@ -23,52 +23,41 @@
             "ip": "20.244.22.230"
         },
         {
-            "name": "localhost",
-            "ip": "127.0.0.1"
+            "name": "MachineEnError",
+            "ip": "192.168.0.100"
         }
     ],
     "snmp_results": {
         "MachineManager": {
             "sysName": "Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64",
-            "diskSpace": "48",
-            "ifOperStatus": "1",
-            "sysUpTime": "691582",
-            "networkSpeed": "10000000",
-            "cpuUsage": "0.42",
+            "sysUpTime": "1370269",
+            "ifInOctets-int1": "709067683",
+            "diskSpace": "49",
             "ramMax": "3955968",
-            "ramDispo": "152408",
-            "ifInOctets-int1": "379036084",
-            "ifInOctets-int2": "75080734",
-            "ifOutOctets-int1": "379036084",
-            "ifOutOctets-int2": "387923647"
+            "cpuUsage": "0.45",
+            "ifOperStatus": "1",
+            "networkSpeed": "10000000",
+            "ifInOctets-int2": "375052847",
+            "ramDispo": "165444",
+            "ifOutOctets-int1": "709067683",
+            "ifOutOctets-int2": "728091521"
         },
         "TestClient": {
+            "networkSpeed": "10000000",
             "sysName": "Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64",
-            "diskSpace": "",
-            "ifOperStatus": "1",
-            "sysUpTime": "1345461",
-            "networkSpeed": "10000000",
-            "cpuUsage": "0.05",
+            "cpuUsage": "0.00",
             "ramMax": "348924",
-            "ramDispo": "34848",
-            "ifInOctets-int1": "7310",
-            "ifInOctets-int2": "8973333",
-            "ifOutOctets-int1": "7310",
-            "ifOutOctets-int2": "18528377"
-        },
-        "localhost": {
-            "sysName": "Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64",
-            "diskSpace": "48",
             "ifOperStatus": "1",
-            "sysUpTime": "691992",
-            "networkSpeed": "10000000",
-            "cpuUsage": "0.46",
-            "ramMax": "3955968",
-            "ramDispo": "152408",
-            "ifInOctets-int1": "379050679",
-            "ifInOctets-int2": "75092760",
-            "ifOutOctets-int1": "379050679",
-            "ifOutOctets-int2": "387938227"
+            "diskSpace": "",
+            "sysUpTime": "838073",
+            "ifInOctets-int1": "7166",
+            "ramDispo": "28008",
+            "ifInOctets-int2": "5999288",
+            "ifOutOctets-int1": "7166",
+            "ifOutOctets-int2": "8650860"
+        },
+        "MachineEnError": {
+            "ifOperStatus": "0"
         }
     }
 }

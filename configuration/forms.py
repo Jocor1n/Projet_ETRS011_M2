@@ -21,7 +21,7 @@ class UtilisateurForm (forms.ModelForm):
 class OIDForm (forms.ModelForm):
     class Meta :
         model = OID
-        fields = ['name' , 'oid', 'is_Integer', 'Donnee_fixe']
+        fields = ['name' , 'oid', 'Donnee_fixe']
     
 class GraphiqueForm (forms.ModelForm):
     class Meta :

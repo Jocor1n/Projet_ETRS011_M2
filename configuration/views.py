@@ -7,6 +7,8 @@ from django.conf import settings
 import os
 import json
 from pysnmp.hlapi import SnmpEngine, CommunityData, UdpTransportTarget, ContextData, ObjectType, ObjectIdentity, getCmd
+from django.http import HttpResponse
+
 
 
 @login_required
@@ -220,7 +222,7 @@ def donnees_machines(request):
     }
     information_types = SurveillanceManager.objects.filter(idMachine=machine).values_list('information_type', flat=True).distinct()
     for info_type in information_types:
-        if info_type != "sysName" and info_type !="ifOperStatus" and info_type !="networkSpeed" and info_type != "sysUpTime" and info_type != "diskSpace":
+        if  OID.objects.get(name=info_type).Donnee_fixe == False :
             data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type)
             print(SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type))
         else :
@@ -232,36 +234,37 @@ def donnees_machines(request):
         list_temp = []
         if graphique.GraphiqueType == "Texte" :
             list_temp.append("Texte")
-            list_temp.append(data["types"][graphique.OID1.name])
-            list_temp.append(data["types"][graphique.OID1.name].data)
+            list_temp.append(graphique)
+            try:
+                list_temp.append(data["types"][graphique.OID1.name])
+                list_temp.append(data["types"][graphique.OID1.name].data)
+            except KeyError:
+                pass
         elif graphique.GraphiqueType == "Curseur":
             list_temp.append("Curseur")
             list_temp.append(graphique)
-            list_temp.append(data["types"][graphique.OID1.name])
-        elif graphique.GraphiqueType == "Comparaison":
-            list_temp.append("Comparaison")
-            list_temp.append(graphique)
-            liste_queryset = []
-            for element in data["types"][graphique.OID1.name]:
-                liste_queryset.append(element)
-            list_temp.append(liste_queryset)
-            liste_queryset2 = []
             try:
-                if data["types"][graphique.OID2.name] != None:
-                    for element in data["types"][graphique.OID2.name]:
-                        liste_queryset2.append(element)
-                    list_temp.append(liste_queryset2)
-            except AttributeError:
-                liste_queryset2.append(None)
-            
+                list_temp.append(data["types"][graphique.OID1.name])
+            except KeyError:
+                pass
         else :
             list_temp.append("Fleche")
-            list_temp.append(data["types"][graphique.OID1.name][0].information_type)
-            liste_queryset = []
-            for element in data["types"][graphique.OID1.name]:
-                liste_queryset.append(element.data)
-            list_temp.append(liste_queryset)
             list_temp.append(graphique)
+            liste_queryset = []
+            try:
+                for element in data["types"][graphique.OID1.name]:
+                    liste_queryset.append(element)
+                list_temp.append(liste_queryset)
+                liste_queryset2 = []
+                try:
+                    if data["types"][graphique.OID2.name] != None:
+                        for element in data["types"][graphique.OID2.name]:
+                            liste_queryset2.append(element)
+                        list_temp.append(liste_queryset2)
+                except AttributeError:
+                    liste_queryset2.append(None)
+            except KeyError:
+                pass
         data_graphiques.append(list_temp)
         
     return render(request, 'liste_donnees.html', {'data_graphiques': data_graphiques, 'machines' : machines, 'graphiques': graphiques, 'form': form})
@@ -271,3 +274,15 @@ def donnees_machines(request):
 def logs(request):
     logs = Logs.objects.all()
     return render(request, 'liste_logs.html', {'logs': logs})
+
+def download_log(request):
+    log_file_path = os.path.join(settings.BASE_DIR, 'log/debug7.log')
+
+    # Assurez-vous que le fichier existe
+    if os.path.exists(log_file_path):
+        with open(log_file_path, 'rb') as log_file:
+            response = HttpResponse(log_file.read(), content_type="application/octet-stream")
+            response['Content-Disposition'] = 'attachment; filename="debug7.log"'
+            return response
+    else:
+        return HttpResponse("Désolé, le fichier log n'a pas été trouvé", status=404)

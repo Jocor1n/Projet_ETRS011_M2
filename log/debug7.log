@@ -1313,3 +1313,2851 @@ ifOutOctets-int1: 379050679
 ifOutOctets-int2: 387938227
 
 
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 80291
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.82
+
+
+ramMax: 3955968
+
+
+ramDispo: 541084
+
+
+ifInOctets-int1: 34383684
+
+
+ifInOctets-int2: 24084858
+
+
+ifOutOctets-int1: 34383684
+
+
+ifOutOctets-int2: 37524607
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 87790
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.47
+
+
+ramMax: 3955968
+
+
+ramDispo: 491308
+
+
+ifInOctets-int1: 35894184
+
+
+ifInOctets-int2: 24374140
+
+
+ifOutOctets-int1: 35894184
+
+
+ifOutOctets-int2: 39050116
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 110287
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.30
+
+
+ramMax: 3955968
+
+
+ramDispo: 448224
+
+
+ifInOctets-int1: 48122661
+
+
+ifInOctets-int2: 25376734
+
+
+ifOutOctets-int1: 48122661
+
+
+ifOutOctets-int2: 51087755
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 117792
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.19
+
+
+ramMax: 3955968
+
+
+ramDispo: 420944
+
+
+ifInOctets-int1: 51070344
+
+
+ifInOctets-int2: 25610324
+
+
+ifOutOctets-int1: 51070344
+
+
+ifOutOctets-int2: 53949841
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 140292
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.32
+
+
+ramMax: 3955968
+
+
+ramDispo: 370240
+
+
+ifInOctets-int1: 64059825
+
+
+ifInOctets-int2: 26365715
+
+
+ifOutOctets-int1: 64059825
+
+
+ifOutOctets-int2: 66865481
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 147787
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.80
+
+
+ramMax: 3955968
+
+
+ramDispo: 412592
+
+
+ifInOctets-int1: 66610817
+
+
+ifInOctets-int2: 26592608
+
+
+ifOutOctets-int1: 66610817
+
+
+ifOutOctets-int2: 69357309
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 170284
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.43
+
+
+ramMax: 3955968
+
+
+ramDispo: 337876
+
+
+ifInOctets-int1: 90759846
+
+
+ifInOctets-int2: 27577453
+
+
+ifOutOctets-int1: 90759846
+
+
+ifOutOctets-int2: 93422739
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 177796
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.29
+
+
+ramMax: 3955968
+
+
+ramDispo: 273160
+
+
+ifInOctets-int1: 94970044
+
+
+ifInOctets-int2: 27787802
+
+
+ifOutOctets-int1: 94970044
+
+
+ifOutOctets-int2: 97636480
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 200316
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.56
+
+
+ramMax: 3955968
+
+
+ramDispo: 240576
+
+
+ifInOctets-int1: 111894763
+
+
+ifInOctets-int2: 28650178
+
+
+ifOutOctets-int1: 111894763
+
+
+ifOutOctets-int2: 114572357
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 207819
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.74
+
+
+ramMax: 3955968
+
+
+ramDispo: 208292
+
+
+ifInOctets-int1: 120670604
+
+
+ifInOctets-int2: 30590785
+
+
+ifOutOctets-int1: 120670604
+
+
+ifOutOctets-int2: 123380989
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 230325
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 1.27
+
+
+ramMax: 3955968
+
+
+ramDispo: 126564
+
+
+ifInOctets-int1: 142184429
+
+
+ifInOctets-int2: 34769326
+
+
+ifOutOctets-int1: 142184429
+
+
+ifOutOctets-int2: 144873769
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 237841
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.94
+
+
+ramMax: 3955968
+
+
+ramDispo: 234356
+
+
+ifInOctets-int1: 149304065
+
+
+ifInOctets-int2: 40398507
+
+
+ifOutOctets-int1: 149304065
+
+
+ifOutOctets-int2: 152379805
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 260345
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.80
+
+
+ramMax: 3955968
+
+
+ramDispo: 312644
+
+
+ifInOctets-int1: 168393645
+
+
+ifInOctets-int2: 41383983
+
+
+ifOutOctets-int1: 168393645
+
+
+ifOutOctets-int2: 171175528
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 267860
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.55
+
+
+ramMax: 3955968
+
+
+ramDispo: 276548
+
+
+ifInOctets-int1: 177294964
+
+
+ifInOctets-int2: 41779607
+
+
+ifOutOctets-int1: 177294964
+
+
+ifOutOctets-int2: 179843945
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 290259
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.70
+
+
+ramMax: 3955968
+
+
+ramDispo: 116288
+
+
+ifInOctets-int1: 191839607
+
+
+ifInOctets-int2: 44549446
+
+
+ifOutOctets-int1: 191839607
+
+
+ifOutOctets-int2: 194538353
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 297762
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.33
+
+
+ramMax: 3955968
+
+
+ramDispo: 176896
+
+
+ifInOctets-int1: 193423048
+
+
+ifInOctets-int2: 44697900
+
+
+ifOutOctets-int1: 193423048
+
+
+ifOutOctets-int2: 196160776
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(idMachine=Machine.objects.get(name=machine), information_type=a_oid.name, data=contenu["snmp_results"][machine][a_oid.name])
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 320303
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.90
+
+
+ramMax: 3955968
+
+
+ramDispo: 126148
+
+
+ifInOctets-int1: 203074746
+
+
+ifInOctets-int2: 47495653
+
+
+ifOutOctets-int1: 203074746
+
+
+ifOutOctets-int2: 206243237
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 327820
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.86
+
+
+ramMax: 3955968
+
+
+ramDispo: 279112
+
+
+ifInOctets-int1: 207769171
+
+
+ifInOctets-int2: 48176280
+
+
+ifOutOctets-int1: 207769171
+
+
+ifOutOctets-int2: 211046548
+
+
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    SurveillanceManager.objects.create(
+KeyError: 'sysName'
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 350320
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.27
+
+
+ramMax: 3955968
+
+
+ramDispo: 488104
+
+
+ifInOctets-int1: 208479887
+
+
+ifInOctets-int2: 48398421
+
+
+ifOutOctets-int1: 208479887
+
+
+ifOutOctets-int2: 211910990
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 357824
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.69
+
+
+ramMax: 3955968
+
+
+ramDispo: 361548
+
+
+ifInOctets-int1: 213508739
+
+
+ifInOctets-int2: 48802413
+
+
+ifOutOctets-int1: 213508739
+
+
+ifOutOctets-int2: 216971180
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 380257
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.29
+
+
+ramMax: 3955968
+
+
+ramDispo: 226792
+
+
+ifInOctets-int1: 223140460
+
+
+ifInOctets-int2: 49566173
+
+
+ifOutOctets-int1: 223176878
+
+
+ifOutOctets-int2: 226865427
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 387789
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.96
+
+
+ramMax: 3955968
+
+
+ramDispo: 130588
+
+
+ifInOctets-int1: 228213583
+
+
+ifInOctets-int2: 50462594
+
+
+ifOutOctets-int1: 228213583
+
+
+ifOutOctets-int2: 232215287
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 410341
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 1.01
+
+
+ramMax: 3955968
+
+
+ramDispo: 201784
+
+
+ifInOctets-int1: 247530639
+
+
+ifInOctets-int2: 52825440
+
+
+ifOutOctets-int1: 247530639
+
+
+ifOutOctets-int2: 253529773
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+
+
+diskSpace: 48
+
+
+ifOperStatus: 1
+
+
+sysUpTime: 417860
+
+
+networkSpeed: 10000000
+
+
+cpuUsage: 0.58
+
+
+ramMax: 3955968
+
+
+ramDispo: 165116
+
+
+ifInOctets-int1: 251024834
+
+
+ifInOctets-int2: 53133252
+
+
+ifOutOctets-int1: 251024834
+
+
+ifOutOctets-int2: 257191950
+
+
+Traceback (most recent call last):
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 22, in <module>
+    main()
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 142, in run_job
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 38
+    contenu = json.load(fichier)
+    ^
+IndentationError: expected an indented block
+Machine: MachineManager; Adresse IP : 20.56.131.151
+ramMax: 3955968
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 470420
+ramDispo: 120316
+diskSpace: 49
+cpuUsage: 2.20
+ifOperStatus: 1
+ifInOctets-int1: 287463496
+networkSpeed: 10000000
+ifInOctets-int2: 297419479
+ifOutOctets-int1: 287463496
+ifOutOctets-int2: 295273211
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+ramMax: 3955968
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+ifOperStatus: 1
+sysUpTime: 471924
+cpuUsage: 2.32
+ramDispo: 116552
+diskSpace: 49
+ifInOctets-int1: 288612375
+ifInOctets-int2: 297891830
+ifOutOctets-int1: 288612375
+ifOutOctets-int2: 296465172
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+ifOperStatus: 1
+ifInOctets-int1: 315139607
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+ramMax: 3955968
+sysUpTime: 500383
+diskSpace: 49
+ifInOctets-int2: 299701178
+ramDispo: 128284
+cpuUsage: 0.47
+ifOutOctets-int2: 323224129
+ifOutOctets-int1: 315141539
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeoutErreur SNMP: No SNMP response received before timeout
+
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 49
+ifOperStatus: 1
+sysUpTime: 501803
+ramMax: 3955968
+networkSpeed: 10000000
+ifInOctets-int2: 299718648
+cpuUsage: 0.57
+ramDispo: 129612
+ifOutOctets-int1: 315200913
+ifInOctets-int1: 315486956
+ifOutOctets-int2: 323587052
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysUpTime: 530445
+networkSpeed: 10000000
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 49
+ramDispo: 111940
+cpuUsage: 0.75
+ramMax: 3955968
+ifInOctets-int1: 335419566
+ifInOctets-int2: 314211551
+ifOperStatus: 1
+ifOutOctets-int2: 343830165
+ifOutOctets-int1: 335419566
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeoutErreur SNMP: No SNMP response received before timeout
+
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+ramMax: 3955968
+sysUpTime: 531882
+diskSpace: 49
+ramDispo: 133244
+ifOperStatus: 1
+ifInOctets-int1: 335971343
+cpuUsage: 0.73
+ifInOctets-int2: 314246571
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+ifOutOctets-int1: 335971343
+ifOutOctets-int2: 344405958
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+ifOperStatus: 1
+ramMax: 3955968
+ifInOctets-int1: 359923514
+cpuUsage: 1.06
+ifInOctets-int2: 323209416
+sysUpTime: 560435
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramDispo: 123692
+diskSpace: 49
+networkSpeed: 10000000
+ifOutOctets-int2: 370023839
+ifOutOctets-int1: 359948187
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifOperStatus: 1
+diskSpace: 
+sysUpTime: 28184
+networkSpeed: 10000000
+cpuUsage: 0.04
+ramMax: 348924
+ifInOctets-int1: 3956
+ramDispo: 65340
+ifInOctets-int2: 262230
+ifOutOctets-int1: 3956
+ifOutOctets-int2: 344930
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+ifInOctets-int1: 360102654
+networkSpeed: 10000000
+sysUpTime: 560808
+diskSpace: 49
+cpuUsage: 1.22
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramMax: 3955968
+ramDispo: 123692
+ifOperStatus: 1
+ifInOctets-int2: 323229700
+ifOutOctets-int2: 370186631
+ifOutOctets-int1: 360102654
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+diskSpace: 49
+networkSpeed: 10000000
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 590393
+ifOperStatus: 1
+cpuUsage: 1.71
+ifInOctets-int2: 326356848
+ramMax: 3955968
+ifInOctets-int1: 380266486
+ramDispo: 118024
+ifOutOctets-int1: 380554264
+ifOutOctets-int2: 391353386
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+diskSpace: 
+ifOperStatus: 1
+networkSpeed: 10000000
+sysUpTime: 58151
+ramDispo: 45904
+cpuUsage: 0.00
+ifInOctets-int1: 4312
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramMax: 348924
+ifInOctets-int2: 512047
+ifOutOctets-int1: 4312
+ifOutOctets-int2: 1330692
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 49
+ifOperStatus: 1
+cpuUsage: 2.46
+sysUpTime: 590793
+networkSpeed: 10000000
+ifInOctets-int2: 326439844
+ramMax: 3955968
+ifOutOctets-int1: 380702799
+ramDispo: 118024
+ifInOctets-int1: 380702799
+ifOutOctets-int2: 391523001
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysUpTime: 620365
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 49
+ramMax: 3955968
+cpuUsage: 0.32
+ifInOctets-int1: 403350526
+ramDispo: 231928
+ifInOctets-int2: 333431658
+ifOperStatus: 1
+networkSpeed: 10000000
+ifOutOctets-int2: 414849500
+ifOutOctets-int1: 403472248
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+ifOperStatus: 1
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 
+ifInOctets-int2: 715274
+networkSpeed: 10000000
+cpuUsage: 0.00
+ramMax: 348924
+sysUpTime: 88195
+ifInOctets-int1: 4312
+ramDispo: 45588
+ifOutOctets-int1: 4312
+ifOutOctets-int2: 1607849
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+diskSpace: 49
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifOperStatus: 1
+ramMax: 3955968
+networkSpeed: 10000000
+cpuUsage: 0.38
+sysUpTime: 620776
+ifInOctets-int2: 333453239
+ramDispo: 231928
+ifInOctets-int1: 403618437
+ifOutOctets-int1: 403618437
+ifOutOctets-int2: 415001974
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+networkSpeed: 10000000
+sysUpTime: 650295
+diskSpace: 49
+ifOperStatus: 1
+cpuUsage: 1.14
+ifInOctets-int1: 421857920
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int2: 336142513
+ramMax: 3955968
+ramDispo: 215524
+ifOutOctets-int1: 421857920
+ifOutOctets-int2: 433808000
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 
+ifOperStatus: 1
+networkSpeed: 10000000
+cpuUsage: 0.00
+sysUpTime: 118081
+ramMax: 348924
+ifInOctets-int1: 4312
+ifInOctets-int2: 918492
+ramDispo: 43492
+ifOutOctets-int1: 4312
+ifOutOctets-int2: 1886839
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysUpTime: 650616
+networkSpeed: 10000000
+diskSpace: 49
+ifInOctets-int2: 336150547
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 1.05
+ifInOctets-int1: 421880686
+ramMax: 3955968
+ramDispo: 215524
+ifOperStatus: 1
+ifOutOctets-int1: 421880686
+ifOutOctets-int2: 433832009
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysUpTime: 680282
+diskSpace: 49
+ifOperStatus: 1
+ramDispo: 196572
+ifInOctets-int1: 439479875
+cpuUsage: 0.30
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramMax: 3955968
+networkSpeed: 10000000
+ifInOctets-int2: 337233017
+ifOutOctets-int2: 451650733
+ifOutOctets-int1: 439479875
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifOperStatus: 1
+sysUpTime: 148083
+ramDispo: 43008
+ifInOctets-int2: 1121470
+ifInOctets-int1: 4312
+ramMax: 348924
+cpuUsage: 0.00
+diskSpace: 
+networkSpeed: 10000000
+ifOutOctets-int2: 2163775
+ifOutOctets-int1: 4312
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+ifOperStatus: 1
+cpuUsage: 0.60
+diskSpace: 49
+ifInOctets-int1: 439480978
+sysUpTime: 680674
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramDispo: 196572
+ifInOctets-int2: 337239365
+ramMax: 3955968
+networkSpeed: 10000000
+ifOutOctets-int1: 439480978
+ifOutOctets-int2: 451659193
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 49
+ifOperStatus: 1
+networkSpeed: 10000000
+sysUpTime: 710341
+ramDispo: 111192
+cpuUsage: 0.18
+ramMax: 3955968
+ifInOctets-int2: 337970415
+ifInOctets-int1: 448391575
+ifOutOctets-int2: 460703434
+ifOutOctets-int1: 448391575
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+ifOperStatus: 1
+diskSpace: 
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+ramMax: 348924
+cpuUsage: 0.07
+sysUpTime: 178124
+ifInOctets-int1: 4312
+ramDispo: 42568
+ifInOctets-int2: 1324711
+ifOutOctets-int2: 2440978
+ifOutOctets-int1: 4312
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+ramMax: 3955968
+sysUpTime: 710701
+ifOperStatus: 1
+networkSpeed: 10000000
+ifInOctets-int1: 448675891
+ifInOctets-int2: 337984471
+diskSpace: 49
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 0.40
+ramDispo: 111192
+ifOutOctets-int1: 448675891
+ifOutOctets-int2: 460992038
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+diskSpace: 49
+ramDispo: 136196
+ifOperStatus: 1
+ifInOctets-int1: 463079578
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 740351
+cpuUsage: 0.36
+networkSpeed: 10000000
+ramMax: 3955968
+ifInOctets-int2: 339092297
+ifOutOctets-int1: 463079578
+ifOutOctets-int2: 475393220
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 208046
+cpuUsage: 0.13
+ifOperStatus: 1
+diskSpace: 
+networkSpeed: 10000000
+ramDispo: 42204
+ifInOctets-int1: 4312
+ifInOctets-int2: 1528723
+ramMax: 348924
+ifOutOctets-int1: 4312
+ifOutOctets-int2: 2721044
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+sysUpTime: 740678
+diskSpace: 49
+ifInOctets-int2: 339109959
+ifOperStatus: 1
+ramDispo: 136196
+ramMax: 3955968
+cpuUsage: 0.58
+ifInOctets-int1: 463155255
+ifOutOctets-int1: 463155255
+ifOutOctets-int2: 475468892
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+ifOperStatus: 1
+diskSpace: 49
+sysUpTime: 770387
+cpuUsage: 0.39
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+ramMax: 3955968
+ramDispo: 116180
+ifInOctets-int1: 481548180
+ifInOctets-int2: 344507790
+ifOutOctets-int2: 495754943
+ifOutOctets-int1: 481548180
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 238155
+diskSpace: 
+ifOperStatus: 1
+cpuUsage: 0.05
+ramDispo: 41796
+networkSpeed: 10000000
+ifInOctets-int2: 1735238
+ramMax: 348924
+ifOutOctets-int1: 4312
+ifInOctets-int1: 4312
+ifOutOctets-int2: 3003243
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysUpTime: 770803
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int2: 344528570
+diskSpace: 49
+ramMax: 3955968
+ifOperStatus: 1
+networkSpeed: 10000000
+ifInOctets-int1: 482781230
+cpuUsage: 0.43
+ramDispo: 116180
+ifOutOctets-int1: 482781230
+ifOutOctets-int2: 497026900
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifOperStatus: 1
+ramDispo: 127668
+diskSpace: 49
+cpuUsage: 0.23
+ramMax: 3955968
+sysUpTime: 800454
+networkSpeed: 10000000
+ifInOctets-int1: 493310619
+ifInOctets-int2: 353226781
+ifOutOctets-int2: 507931655
+ifOutOctets-int1: 493310619
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 
+ifOperStatus: 1
+ifInOctets-int1: 4312
+networkSpeed: 10000000
+cpuUsage: 0.69
+ramDispo: 25272
+sysUpTime: 268205
+ifInOctets-int2: 1938472
+ramMax: 348924
+ifOutOctets-int2: 3280055
+ifOutOctets-int1: 4312
+
+
+Machine: localhost; Adresse IP : 127.0.0.1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 49
+sysUpTime: 800738
+ifInOctets-int1: 493311382
+ifOperStatus: 1
+ramMax: 3955968
+cpuUsage: 0.85
+ifInOctets-int2: 353232837
+networkSpeed: 10000000
+ramDispo: 127668
+ifOutOctets-int1: 493311382
+ifOutOctets-int2: 507939891
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+cpuUsage: 0.15
+ifOperStatus: 1
+ifInOctets-int2: 354068437
+sysUpTime: 830383
+ramDispo: 124932
+ramMax: 3955968
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+ifInOctets-int1: 503555455
+diskSpace: 49
+ifOutOctets-int2: 518286741
+ifOutOctets-int1: 503555455
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+ramMax: 348924
+cpuUsage: 1.54
+ramDispo: 11240
+ifInOctets-int2: 2095374
+sysUpTime: 298141
+diskSpace: 
+ifOperStatus: 1
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int1: 4312
+networkSpeed: 10000000
+ifOutOctets-int2: 3487556
+ifOutOctets-int1: 4312
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+ramDispo: 149588
+cpuUsage: 0.40
+diskSpace: 49
+networkSpeed: 10000000
+ifOperStatus: 1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int2: 355106961
+sysUpTime: 860339
+ramMax: 3955968
+ifInOctets-int1: 518069424
+ifOutOctets-int2: 533084871
+ifOutOctets-int1: 518069424
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 1.59
+sysUpTime: 328091
+ifOperStatus: 1
+ramMax: 348924
+ifInOctets-int2: 2237714
+networkSpeed: 10000000
+diskSpace: 
+ramDispo: 9428
+ifInOctets-int1: 4312
+ifOutOctets-int1: 4312
+ifOutOctets-int2: 3670968
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7fd564d6c100 state=running>: 'sysName', <Future at 0x7fd564cb70d0 state=running>: 'diskSpace', <Future at 0x7fd564cca430 state=running>: 'ifOperStatus', <Future at 0x7fd564cd6190 state=running>: 'sysUpTime', <Future at 0x7fd564cd6520 state=running>: 'networkSpeed', <Future at 0x7fd564cd6e20 state=running>: 'cpuUsage', <Future at 0x7fd56431dfd0 state=running>: 'ramMax', <Future at 0x7fd564cf2040 state=running>: 'ramDispo', <Future at 0x7fd564308ee0 state=running>: 'ifInOctets-int1', <Future at 0x7fd5643b4220 state=running>: 'ifInOctets-int2', <Future at 0x7fd5643082e0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fd5643a1c40 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 49
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 0.33
+networkSpeed: 10000000
+ramDispo: 130356
+ifInOctets-int2: 356297472
+ifOperStatus: 1
+ifInOctets-int1: 536281259
+ramMax: 3955968
+sysUpTime: 890431
+ifOutOctets-int2: 551347295
+ifOutOctets-int1: 536281259
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7fd5643b4100 state=running>: 'sysName', <Future at 0x7fd53e6813d0 state=running>: 'diskSpace', <Future at 0x7fd5641c9250 state=running>: 'ifOperStatus', <Future at 0x7fd5642cfaf0 state=running>: 'sysUpTime', <Future at 0x7fd5642b78b0 state=running>: 'networkSpeed', <Future at 0x7fd5642b7910 state=running>: 'cpuUsage', <Future at 0x7fd564109430 state=running>: 'ramMax', <Future at 0x7fd564109bb0 state=running>: 'ramDispo', <Future at 0x7fd5640f5550 state=running>: 'ifInOctets-int1', <Future at 0x7fd5642c2370 state=running>: 'ifInOctets-int2', <Future at 0x7fd5642c2760 state=pending>: 'ifOutOctets-int1', <Future at 0x7fd5642ae070 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 
+ramDispo: 5416
+ramMax: 348924
+networkSpeed: 10000000
+ifOperStatus: 1
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int2: 2382583
+sysUpTime: 358185
+cpuUsage: 1.64
+ifInOctets-int1: 5078
+ifOutOctets-int2: 3855939
+ifOutOctets-int1: 5078
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f8e06540520 state=running>: 'sysName', <Future at 0x7f8e0648d280 state=running>: 'diskSpace', <Future at 0x7f8e064afb20 state=running>: 'ifOperStatus', <Future at 0x7f8e064aff10 state=running>: 'sysUpTime', <Future at 0x7f8e0649f2e0 state=running>: 'networkSpeed', <Future at 0x7f8e05358b80 state=running>: 'cpuUsage', <Future at 0x7f8e052dafa0 state=running>: 'ramMax', <Future at 0x7f8e0535fd30 state=running>: 'ramDispo', <Future at 0x7f8e041d0100 state=running>: 'ifInOctets-int1', <Future at 0x7f8e0538b2b0 state=running>: 'ifInOctets-int2', <Future at 0x7f8e0426a640 state=pending>: 'ifOutOctets-int1', <Future at 0x7f8e041893d0 state=pending>: 'ifOutOctets-int2'}
+ifOperStatus: 1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 920370
+cpuUsage: 0.35
+networkSpeed: 10000000
+diskSpace: 49
+ramMax: 3955968
+ramDispo: 123844
+ifInOctets-int1: 549877375
+ifOutOctets-int1: 549877375
+ifInOctets-int2: 357489011
+ifOutOctets-int2: 565051239
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f8e0538b280 state=running>: 'sysName', <Future at 0x7f8df5faab20 state=running>: 'diskSpace', <Future at 0x7f8df4efd700 state=running>: 'ifOperStatus', <Future at 0x7f8df5f8e910 state=running>: 'sysUpTime', <Future at 0x7f8e04201eb0 state=running>: 'networkSpeed', <Future at 0x7f8e04201bb0 state=running>: 'cpuUsage', <Future at 0x7f8e04201be0 state=running>: 'ramMax', <Future at 0x7f8df5f90160 state=running>: 'ramDispo', <Future at 0x7f8df5f90070 state=running>: 'ifInOctets-int1', <Future at 0x7f8df4cace50 state=running>: 'ifInOctets-int2', <Future at 0x7f8df45e2280 state=pending>: 'ifOutOctets-int1', <Future at 0x7f8df48bf220 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 
+networkSpeed: 10000000
+cpuUsage: 1.59
+ifInOctets-int2: 2526658
+ramDispo: 4800
+sysUpTime: 388170
+ramMax: 348924
+ifOperStatus: 1
+ifInOctets-int1: 5696
+ifOutOctets-int1: 5696
+ifOutOctets-int2: 4046858
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f8df45e2760 state=running>: 'sysName', <Future at 0x7f8e041d0100 state=running>: 'diskSpace', <Future at 0x7f8df41bd910 state=running>: 'ifOperStatus', <Future at 0x7f8df41ea9d0 state=running>: 'sysUpTime', <Future at 0x7f8df41ef940 state=running>: 'networkSpeed', <Future at 0x7f8df44280a0 state=running>: 'cpuUsage', <Future at 0x7f8df44287f0 state=running>: 'ramMax', <Future at 0x7f8df44100d0 state=running>: 'ramDispo', <Future at 0x7f8df4428b50 state=running>: 'ifInOctets-int1', <Future at 0x7f8df4410e20 state=running>: 'ifInOctets-int2', <Future at 0x7f8ddbec31f0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f8ddbec21f0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    Logs.objects.create(idMachine=machine, type_log="Error", informations="Hôte Non actif", is_error=True)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/fields/related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "{'name': 'MachineEnError', 'ip': '192.168.0.100'}": "Logs.idMachine" must be a "Machine" instance.
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f6f51af5820 state=running>: 'sysName', <Future at 0x7f6f51a422e0 state=running>: 'diskSpace', <Future at 0x7f6f51a54670 state=running>: 'ifOperStatus', <Future at 0x7f6f51a54c10 state=running>: 'sysUpTime', <Future at 0x7f6f51a61220 state=running>: 'networkSpeed', <Future at 0x7f6f51a42f70 state=running>: 'cpuUsage', <Future at 0x7f6f51a67250 state=running>: 'ramMax', <Future at 0x7f6f501067f0 state=running>: 'ramDispo', <Future at 0x7f6f427234f0 state=running>: 'ifInOctets-int1', <Future at 0x7f6f501f3a90 state=running>: 'ifInOctets-int2', <Future at 0x7f6f415d31c0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f6f415c4a60 state=pending>: 'ifOutOctets-int2'}
+cpuUsage: 0.26
+sysUpTime: 950374
+diskSpace: 49
+ramDispo: 134476
+ifOperStatus: 1
+ramMax: 3955968
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+ifInOctets-int1: 557275502
+ifInOctets-int2: 358366211
+ifOutOctets-int2: 572720847
+ifOutOctets-int1: 557275502
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f6f42723310 state=running>: 'sysName', <Future at 0x7f6f51a67040 state=running>: 'diskSpace', <Future at 0x7f6f23fef220 state=running>: 'ifOperStatus', <Future at 0x7f6f23fef8b0 state=running>: 'sysUpTime', <Future at 0x7f6f23fef7c0 state=running>: 'networkSpeed', <Future at 0x7f6f400f9a00 state=running>: 'cpuUsage', <Future at 0x7f6f51a67100 state=running>: 'ramMax', <Future at 0x7f6f4013d040 state=running>: 'ramDispo', <Future at 0x7f6f23f4bdf0 state=running>: 'ifInOctets-int1', <Future at 0x7f6f50157640 state=running>: 'ifInOctets-int2', <Future at 0x7f6f4019c070 state=pending>: 'ifOutOctets-int1', <Future at 0x7f6f2393b5e0 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 
+sysUpTime: 418157
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int2: 2682900
+cpuUsage: 1.57
+networkSpeed: 10000000
+ramMax: 348924
+ramDispo: 12924
+ifOperStatus: 1
+ifInOctets-int1: 5696
+ifOutOctets-int2: 4915204
+ifOutOctets-int1: 5696
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f6f2399afd0 state=running>: 'sysName', <Future at 0x7f6f23feff10 state=running>: 'diskSpace', <Future at 0x7f6f415c45e0 state=running>: 'ifOperStatus', <Future at 0x7f6f40552880 state=running>: 'sysUpTime', <Future at 0x7f6f427e09d0 state=running>: 'networkSpeed', <Future at 0x7f6f427e03d0 state=running>: 'cpuUsage', <Future at 0x7f6f427e0850 state=running>: 'ramMax', <Future at 0x7f6f23ba9d90 state=running>: 'ramDispo', <Future at 0x7f6f23ccadc0 state=running>: 'ifInOctets-int1', <Future at 0x7f6f23e378e0 state=running>: 'ifInOctets-int2', <Future at 0x7f6f23f9aac0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f6f23f9a4f0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Failed to complete cronjob at ('*/5 * * * *', 'configuration.json_interroge.json_test', '>> /home/azureuser/Django_APP/Projet_ETRS011_M2/log/debug7.log 2>&1 ')
+Traceback (most recent call last):
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/json_interroge.py", line 62, in json_test
+    Logs.objects.create(idMachine=machine, type_log="Error", informations="Hôte Non actif", is_error=True)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/db/models/fields/related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "{'name': 'MachineEnError', 'ip': '192.168.0.100'}": "Logs.idMachine" must be a "Machine" instance.
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f4432a40520 state=running>: 'sysName', <Future at 0x7f443298d280 state=running>: 'diskSpace', <Future at 0x7f443299f5e0 state=running>: 'ifOperStatus', <Future at 0x7f443299fdc0 state=running>: 'sysUpTime', <Future at 0x7f443299f340 state=running>: 'networkSpeed', <Future at 0x7f443298dc70 state=running>: 'cpuUsage', <Future at 0x7f44329b37f0 state=running>: 'ramMax', <Future at 0x7f44329c71c0 state=running>: 'ramDispo', <Future at 0x7f44329b3b20 state=running>: 'ifInOctets-int1', <Future at 0x7f44329b38b0 state=running>: 'ifInOctets-int2', <Future at 0x7f44329c73a0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f44307d2fa0 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 49
+sysUpTime: 980307
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 1.01
+ifInOctets-int1: 572686623
+ramDispo: 132008
+ifOperStatus: 1
+ramMax: 3955968
+networkSpeed: 10000000
+ifInOctets-int2: 361623648
+ifOutOctets-int2: 588566159
+ifOutOctets-int1: 572686623
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f443299fd90 state=running>: 'sysName', <Future at 0x7f44307d2f40 state=running>: 'diskSpace', <Future at 0x7f4430367310 state=running>: 'ifOperStatus', <Future at 0x7f443035a760 state=running>: 'sysUpTime', <Future at 0x7f443035aca0 state=running>: 'networkSpeed', <Future at 0x7f4430907f70 state=running>: 'cpuUsage', <Future at 0x7f44309075e0 state=running>: 'ramMax', <Future at 0x7f44308997f0 state=running>: 'ramDispo', <Future at 0x7f4430899880 state=running>: 'ifInOctets-int1', <Future at 0x7f443032db20 state=running>: 'ifInOctets-int2', <Future at 0x7f44209c6e50 state=pending>: 'ifOutOctets-int1', <Future at 0x7f44303843d0 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 
+networkSpeed: 10000000
+cpuUsage: 1.64
+ifOperStatus: 1
+ifInOctets-int2: 2821885
+ramMax: 348924
+sysUpTime: 448117
+ifInOctets-int1: 5696
+ramDispo: 6472
+ifOutOctets-int2: 5098226
+ifOutOctets-int1: 5696
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f4430367dc0 state=running>: 'sysName', <Future at 0x7f44329c71c0 state=running>: 'diskSpace', <Future at 0x7f443063ed60 state=running>: 'ifOperStatus', <Future at 0x7f4420ad84f0 state=running>: 'sysUpTime', <Future at 0x7f44301b8ca0 state=running>: 'networkSpeed', <Future at 0x7f4430891d30 state=running>: 'cpuUsage', <Future at 0x7f4420ceb8b0 state=running>: 'ramMax', <Future at 0x7f44308913d0 state=running>: 'ramDispo', <Future at 0x7f44206b4d90 state=running>: 'ifInOctets-int1', <Future at 0x7f44206b4c70 state=running>: 'ifInOctets-int2', <Future at 0x7f4420795520 state=pending>: 'ifOutOctets-int1', <Future at 0x7f4420795190 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7ffa1bc0d130 state=running>: 'sysName', <Future at 0x7ffa1bb5c2e0 state=running>: 'diskSpace', <Future at 0x7ffa1bb6c640 state=running>: 'ifOperStatus', <Future at 0x7ffa1bb91190 state=running>: 'sysUpTime', <Future at 0x7ffa1bb91820 state=running>: 'networkSpeed', <Future at 0x7ffa1bb91ca0 state=running>: 'cpuUsage', <Future at 0x7ffa1bb926a0 state=running>: 'ramMax', <Future at 0x7ffa1bb92df0 state=running>: 'ramDispo', <Future at 0x7ffa1a9af640 state=running>: 'ifInOctets-int1', <Future at 0x7ffa1a9c0a30 state=running>: 'ifInOctets-int2', <Future at 0x7ffa1aa42580 state=pending>: 'ifOutOctets-int1', <Future at 0x7ffa1a9cb340 state=pending>: 'ifOutOctets-int2'}
+ramDispo: 329940
+diskSpace: 49
+ifInOctets-int1: 579771465
+ifOperStatus: 1
+networkSpeed: 10000000
+cpuUsage: 0.30
+ifInOctets-int2: 362268029
+ramMax: 3955968
+sysUpTime: 1010423
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifOutOctets-int2: 595874570
+ifOutOctets-int1: 579781902
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7ffa1bb5cd90 state=running>: 'sysName', <Future at 0x7ffa1bb91400 state=running>: 'diskSpace', <Future at 0x7ff9f9fbf550 state=running>: 'ifOperStatus', <Future at 0x7ff9f9fbfca0 state=running>: 'sysUpTime', <Future at 0x7ff9f9afb340 state=running>: 'networkSpeed', <Future at 0x7ff9f9afb9d0 state=running>: 'cpuUsage', <Future at 0x7ff9f9fbf880 state=running>: 'ramMax', <Future at 0x7ff9f9afca30 state=running>: 'ramDispo', <Future at 0x7ff9f9afcf10 state=running>: 'ifInOctets-int1', <Future at 0x7ff9f9af9a00 state=running>: 'ifInOctets-int2', <Future at 0x7ff9f9afce80 state=pending>: 'ifOutOctets-int1', <Future at 0x7ff9f9bb84f0 state=pending>: 'ifOutOctets-int2'}
+ifOperStatus: 1
+sysUpTime: 478133
+ifInOctets-int1: 5696
+cpuUsage: 1.68
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramMax: 348924
+ramDispo: 9388
+networkSpeed: 10000000
+ifInOctets-int2: 2939355
+diskSpace: 
+ifOutOctets-int2: 5247542
+ifOutOctets-int1: 5696
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7ff9f9afb310 state=running>: 'sysName', <Future at 0x7ff9f9af94f0 state=running>: 'diskSpace', <Future at 0x7ff9f9759550 state=running>: 'ifOperStatus', <Future at 0x7ff9f9605d00 state=running>: 'sysUpTime', <Future at 0x7ff9f9759cd0 state=running>: 'networkSpeed', <Future at 0x7ff9f9759f10 state=running>: 'cpuUsage', <Future at 0x7ffa1aae0c70 state=running>: 'ramMax', <Future at 0x7ffa1aae08e0 state=running>: 'ramDispo', <Future at 0x7ffa1aae0640 state=running>: 'ifInOctets-int1', <Future at 0x7ff9f962b160 state=running>: 'ifInOctets-int2', <Future at 0x7ff9f962bd90 state=pending>: 'ifOutOctets-int1', <Future at 0x7ff9f95ed4c0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7fc2dd409a00 state=running>: 'sysName', <Future at 0x7fc2dd3551f0 state=running>: 'diskSpace', <Future at 0x7fc2dd366580 state=running>: 'ifOperStatus', <Future at 0x7fc2dd366d00 state=running>: 'sysUpTime', <Future at 0x7fc2dd372580 state=running>: 'networkSpeed', <Future at 0x7fc2dd372e80 state=running>: 'cpuUsage', <Future at 0x7fc2dd38f4f0 state=running>: 'ramMax', <Future at 0x7fc2dc228d00 state=running>: 'ramDispo', <Future at 0x7fc2dc2d2ca0 state=running>: 'ifInOctets-int1', <Future at 0x7fc2dc2d2cd0 state=running>: 'ifInOctets-int2', <Future at 0x7fc2dc30c160 state=pending>: 'ifOutOctets-int1', <Future at 0x7fc2dc3101c0 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+networkSpeed: 10000000
+sysUpTime: 1040305
+ramMax: 3955968
+ifOperStatus: 1
+ramDispo: 316564
+ifInOctets-int1: 587845364
+ifInOctets-int2: 363023465
+cpuUsage: 0.54
+diskSpace: 49
+ifOutOctets-int1: 587845364
+ifOutOctets-int2: 604146788
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7fc2b30fe2b0 state=running>: 'sysName', <Future at 0x7fc2d4390c70 state=running>: 'diskSpace', <Future at 0x7fc2b2c899a0 state=running>: 'ifOperStatus', <Future at 0x7fc2b328e310 state=running>: 'sysUpTime', <Future at 0x7fc2d418cb50 state=running>: 'networkSpeed', <Future at 0x7fc2d418c0d0 state=running>: 'cpuUsage', <Future at 0x7fc2dc0f92b0 state=running>: 'ramMax', <Future at 0x7fc2dc163490 state=running>: 'ramDispo', <Future at 0x7fc2d4705d30 state=running>: 'ifInOctets-int1', <Future at 0x7fc2dc0f95e0 state=running>: 'ifInOctets-int2', <Future at 0x7fc2dc2f1910 state=pending>: 'ifOutOctets-int1', <Future at 0x7fc2b32ca490 state=pending>: 'ifOutOctets-int2'}
+ifOperStatus: 1
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int1: 5696
+networkSpeed: 10000000
+sysUpTime: 508079
+ifInOctets-int2: 3033236
+diskSpace: 
+ramDispo: 9212
+cpuUsage: 1.96
+ifOutOctets-int1: 5696
+ramMax: 348924
+ifOutOctets-int2: 5367371
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7fc2b32a96a0 state=running>: 'sysName', <Future at 0x7fc2dc1638b0 state=running>: 'diskSpace', <Future at 0x7fc2d41fbeb0 state=running>: 'ifOperStatus', <Future at 0x7fc2d41fb940 state=running>: 'sysUpTime', <Future at 0x7fc2d424aa30 state=running>: 'networkSpeed', <Future at 0x7fc2d424a8e0 state=running>: 'cpuUsage', <Future at 0x7fc2dc303c10 state=running>: 'ramMax', <Future at 0x7fc2dc303c40 state=running>: 'ramDispo', <Future at 0x7fc2b2c97e20 state=running>: 'ifInOctets-int1', <Future at 0x7fc2dc30cdf0 state=running>: 'ifInOctets-int2', <Future at 0x7fc2d57bfb20 state=pending>: 'ifOutOctets-int1', <Future at 0x7fc2d57bfbb0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeoutErreur SNMP: No SNMP response received before timeout
+
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7fc551f17130 state=running>: 'sysName', <Future at 0x7fc551e652e0 state=running>: 'diskSpace', <Future at 0x7fc551e76640 state=running>: 'ifOperStatus', <Future at 0x7fc551e76f70 state=running>: 'sysUpTime', <Future at 0x7fc551e84340 state=running>: 'networkSpeed', <Future at 0x7fc551e84ca0 state=running>: 'cpuUsage', <Future at 0x7fc551e930a0 state=running>: 'ramMax', <Future at 0x7fc551e93b20 state=running>: 'ramDispo', <Future at 0x7fc550cd3e20 state=running>: 'ifInOctets-int1', <Future at 0x7fc550cd1190 state=running>: 'ifInOctets-int2', <Future at 0x7fc550cd1880 state=pending>: 'ifOutOctets-int1', <Future at 0x7fc550cd1f40 state=pending>: 'ifOutOctets-int2'}
+networkSpeed: 10000000
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 1070364
+ifOperStatus: 1
+ifInOctets-int2: 364162253
+ramDispo: 261752
+ifInOctets-int1: 602318904
+ramMax: 3955968
+diskSpace: 49
+cpuUsage: 0.77
+ifOutOctets-int2: 618545365
+ifOutOctets-int1: 602364099
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7fc523c158b0 state=running>: 'sysName', <Future at 0x7fc54070c640 state=running>: 'diskSpace', <Future at 0x7fc5500cbac0 state=running>: 'ifOperStatus', <Future at 0x7fc5500cb400 state=running>: 'sysUpTime', <Future at 0x7fc5500cbf40 state=running>: 'networkSpeed', <Future at 0x7fc523d8bc70 state=running>: 'cpuUsage', <Future at 0x7fc5403d6f10 state=running>: 'ramMax', <Future at 0x7fc5403d6a60 state=running>: 'ramDispo', <Future at 0x7fc540383610 state=running>: 'ifInOctets-int1', <Future at 0x7fc540383280 state=running>: 'ifInOctets-int2', <Future at 0x7fc550ca3730 state=pending>: 'ifOutOctets-int1', <Future at 0x7fc5405a10a0 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 538138
+ifOperStatus: 1
+diskSpace: 
+ramMax: 348924
+networkSpeed: 10000000
+ramDispo: 5944
+ifInOctets-int1: 5696
+cpuUsage: 1.76
+ifInOctets-int2: 3127771
+ifOutOctets-int1: 5696
+ifOutOctets-int2: 5486128
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7fc5500c6400 state=running>: 'sysName', <Future at 0x7fc5403f4490 state=running>: 'diskSpace', <Future at 0x7fc5403f49a0 state=running>: 'ifOperStatus', <Future at 0x7fc5402c3700 state=running>: 'sysUpTime', <Future at 0x7fc540076370 state=running>: 'networkSpeed', <Future at 0x7fc550e36eb0 state=running>: 'cpuUsage', <Future at 0x7fc550e36910 state=running>: 'ramMax', <Future at 0x7fc550e36cd0 state=running>: 'ramDispo', <Future at 0x7fc523bfbb20 state=running>: 'ifInOctets-int1', <Future at 0x7fc5502b37c0 state=running>: 'ifInOctets-int2', <Future at 0x7fc5502b3190 state=pending>: 'ifOutOctets-int1', <Future at 0x7fc5403f79d0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7fe552f800d0 state=running>: 'sysName', <Future at 0x7fe552ee3790 state=running>: 'diskSpace', <Future at 0x7fe552ee3e20 state=running>: 'ifOperStatus', <Future at 0x7fe552ee38e0 state=running>: 'sysUpTime', <Future at 0x7fe552ef2730 state=running>: 'networkSpeed', <Future at 0x7fe552ee4f70 state=running>: 'cpuUsage', <Future at 0x7fe552ef2a90 state=running>: 'ramMax', <Future at 0x7fe552f00790 state=running>: 'ramDispo', <Future at 0x7fe552f0e9a0 state=running>: 'ifInOctets-int1', <Future at 0x7fe550ddb790 state=running>: 'ifInOctets-int2', <Future at 0x7fe550da0d90 state=pending>: 'ifOutOctets-int1', <Future at 0x7fe550e550a0 state=pending>: 'ifOutOctets-int2'}
+ifOperStatus: 1
+sysUpTime: 1100340
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramDispo: 185860
+networkSpeed: 10000000
+diskSpace: 49
+ifInOctets-int1: 612932894
+cpuUsage: 0.16
+ifInOctets-int2: 365024475
+ramMax: 3955968
+ifOutOctets-int1: 612935162
+ifOutOctets-int2: 629221177
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7fe552f00700 state=running>: 'sysName', <Future at 0x7fe550e55310 state=running>: 'diskSpace', <Future at 0x7fe5391903d0 state=running>: 'ifOperStatus', <Future at 0x7fe5391909a0 state=running>: 'sysUpTime', <Future at 0x7fe539190fd0 state=running>: 'networkSpeed', <Future at 0x7fe53918b6a0 state=running>: 'cpuUsage', <Future at 0x7fe5391a2640 state=running>: 'ramMax', <Future at 0x7fe5391a2940 state=running>: 'ramDispo', <Future at 0x7fe53918b820 state=running>: 'ifInOctets-int1', <Future at 0x7fe5389a8c70 state=running>: 'ifInOctets-int2', <Future at 0x7fe5389a12b0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fe5389a9460 state=pending>: 'ifOutOctets-int2'}
+ramDispo: 9676
+ifOperStatus: 1
+ramMax: 348924
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int1: 5696
+cpuUsage: 1.67
+sysUpTime: 568157
+diskSpace: 
+networkSpeed: 10000000
+ifInOctets-int2: 3226319
+ifOutOctets-int1: 5696
+ifOutOctets-int2: 5608310
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7fe53889dc10 state=running>: 'sysName', <Future at 0x7fe538da1be0 state=running>: 'diskSpace', <Future at 0x7fe5395e6dc0 state=running>: 'ifOperStatus', <Future at 0x7fe550236d00 state=running>: 'sysUpTime', <Future at 0x7fe550242f40 state=running>: 'networkSpeed', <Future at 0x7fe539204df0 state=running>: 'cpuUsage', <Future at 0x7fe552ee4fd0 state=running>: 'ramMax', <Future at 0x7fe538ca3490 state=running>: 'ramDispo', <Future at 0x7fe538f56070 state=running>: 'ifInOctets-int1', <Future at 0x7fe538c4da30 state=running>: 'ifInOctets-int2', <Future at 0x7fe5504333d0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fe5502e8370 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f7075699040 state=running>: 'sysName', <Future at 0x7f70755e6b80 state=running>: 'diskSpace', <Future at 0x7f70755f5100 state=running>: 'ifOperStatus', <Future at 0x7f70755f59d0 state=running>: 'sysUpTime', <Future at 0x7f70756032b0 state=running>: 'networkSpeed', <Future at 0x7f7075603970 state=running>: 'cpuUsage', <Future at 0x7f7075619160 state=running>: 'ramMax', <Future at 0x7f7075619550 state=running>: 'ramDispo', <Future at 0x7f7075619c70 state=running>: 'ifInOctets-int1', <Future at 0x7f70742ec4f0 state=running>: 'ifInOctets-int2', <Future at 0x7f707430da00 state=pending>: 'ifOutOctets-int1', <Future at 0x7f70744e75b0 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 49
+cpuUsage: 0.11
+sysUpTime: 1130263
+ramDispo: 305100
+ifOperStatus: 1
+ramMax: 3955968
+networkSpeed: 10000000
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int2: 365901420
+ifInOctets-int1: 623386531
+ifOutOctets-int2: 641435460
+ifOutOctets-int1: 623386531
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f70755e6f10 state=running>: 'sysName', <Future at 0x7f70744e7400 state=running>: 'diskSpace', <Future at 0x7f704b5849a0 state=running>: 'ifOperStatus', <Future at 0x7f70744dc070 state=running>: 'sysUpTime', <Future at 0x7f70744dc6d0 state=running>: 'networkSpeed', <Future at 0x7f704b5841f0 state=running>: 'cpuUsage', <Future at 0x7f70744dce50 state=running>: 'ramMax', <Future at 0x7f70742e27c0 state=running>: 'ramDispo', <Future at 0x7f704b585700 state=running>: 'ifInOctets-int1', <Future at 0x7f704b585310 state=running>: 'ifInOctets-int2', <Future at 0x7f704b5b2640 state=pending>: 'ifOutOctets-int1', <Future at 0x7f704b6ef8b0 state=pending>: 'ifOutOctets-int2'}
+cpuUsage: 6.14
+sysUpTime: 598433
+ifInOctets-int2: 3307941
+networkSpeed: 10000000
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 
+ramMax: 348924
+ramDispo: 76112
+ifOperStatus: 1
+ifInOctets-int1: 5696
+ifOutOctets-int1: 5696
+ifOutOctets-int2: 5705902
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f707406a280 state=running>: 'sysName', <Future at 0x7f70744793d0 state=running>: 'diskSpace', <Future at 0x7f7074379a00 state=running>: 'ifOperStatus', <Future at 0x7f7074379e20 state=running>: 'sysUpTime', <Future at 0x7f7074379400 state=running>: 'networkSpeed', <Future at 0x7f7074386c70 state=running>: 'cpuUsage', <Future at 0x7f706c15d700 state=running>: 'ramMax', <Future at 0x7f7074253cd0 state=running>: 'ramDispo', <Future at 0x7f704b233a90 state=running>: 'ifInOctets-int1', <Future at 0x7f706c11f2b0 state=running>: 'ifInOctets-int2', <Future at 0x7f706c11f910 state=pending>: 'ifOutOctets-int1', <Future at 0x7f706c1f5cd0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f43da0f0fd0 state=running>: 'sysName', <Future at 0x7f43da03db50 state=running>: 'diskSpace', <Future at 0x7f43da04c0d0 state=running>: 'ifOperStatus', <Future at 0x7f43da04cb80 state=running>: 'sysUpTime', <Future at 0x7f43da06e340 state=running>: 'networkSpeed', <Future at 0x7f43d85cf070 state=running>: 'cpuUsage', <Future at 0x7f43d87fe9a0 state=running>: 'ramMax', <Future at 0x7f43d88031f0 state=running>: 'ramDispo', <Future at 0x7f43d8803940 state=running>: 'ifInOctets-int1', <Future at 0x7f43d8803d30 state=running>: 'ifInOctets-int2', <Future at 0x7f43d84f37f0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f43d84f3d30 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifOperStatus: 1
+diskSpace: 49
+sysUpTime: 1160349
+cpuUsage: 0.39
+ramDispo: 111972
+networkSpeed: 10000000
+ramMax: 3955968
+ifInOctets-int2: 369027824
+ifOutOctets-int2: 658895649
+ifInOctets-int1: 640747960
+ifOutOctets-int1: 641021742
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f43da06e130 state=running>: 'sysName', <Future at 0x7f43d85c6790 state=running>: 'diskSpace', <Future at 0x7f43d8803910 state=running>: 'ifOperStatus', <Future at 0x7f43da04c0a0 state=running>: 'sysUpTime', <Future at 0x7f43d84f3820 state=running>: 'networkSpeed', <Future at 0x7f43abc9c3a0 state=running>: 'cpuUsage', <Future at 0x7f43abc9c670 state=running>: 'ramMax', <Future at 0x7f43abf21970 state=running>: 'ramDispo', <Future at 0x7f43d805f160 state=running>: 'ifInOctets-int1', <Future at 0x7f43d8068340 state=running>: 'ifInOctets-int2', <Future at 0x7f43d8345400 state=pending>: 'ifOutOctets-int1', <Future at 0x7f43c806dd90 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifOperStatus: 1
+diskSpace: 
+networkSpeed: 10000000
+ifInOctets-int2: 4538072
+ramMax: 348924
+ifInOctets-int1: 6548
+ramDispo: 24916
+cpuUsage: 0.06
+sysUpTime: 628209
+ifOutOctets-int2: 5992520
+ifOutOctets-int1: 6548
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f43d8568190 state=running>: 'sysName', <Future at 0x7f43abc5b850 state=running>: 'diskSpace', <Future at 0x7f43abfe6670 state=running>: 'ifOperStatus', <Future at 0x7f43d8657880 state=running>: 'sysUpTime', <Future at 0x7f43d86577f0 state=running>: 'networkSpeed', <Future at 0x7f43abf5d160 state=running>: 'cpuUsage', <Future at 0x7f43ab9857f0 state=running>: 'ramMax', <Future at 0x7f43abf5ddf0 state=running>: 'ramDispo', <Future at 0x7f43abb0bfa0 state=running>: 'ifInOctets-int1', <Future at 0x7f43d87b8c10 state=running>: 'ifInOctets-int2', <Future at 0x7f43d87b8640 state=pending>: 'ifOutOctets-int1', <Future at 0x7f43da06e1f0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeoutErreur SNMP: No SNMP response received before timeout
+
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Traceback (most recent call last):
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 22, in <module>
+    main()
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/core/management/__init__.py", line 416, in execute
+    django.setup()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/apps/registry.py", line 116, in populate
+    app_config.import_models()
+  File "/home/azureuser/.local/lib/python3.8/site-packages/django/apps/config.py", line 269, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/azureuser/Django_APP/Projet_ETRS011_M2/configuration/models.py", line 65
+    type_de_donnees_entree =
+                           ^
+SyntaxError: invalid syntax
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7fe8e88c62e0 state=running>: 'sysName', <Future at 0x7fe8e8812f10 state=running>: 'diskSpace', <Future at 0x7fe8e8825520 state=running>: 'ifOperStatus', <Future at 0x7fe8e8825d60 state=running>: 'sysUpTime', <Future at 0x7fe8e882e640 state=running>: 'networkSpeed', <Future at 0x7fe8e8825130 state=running>: 'cpuUsage', <Future at 0x7fe8e8812a90 state=running>: 'ramMax', <Future at 0x7fe8e883aaf0 state=running>: 'ramDispo', <Future at 0x7fe8e884b520 state=running>: 'ifInOctets-int1', <Future at 0x7fe8e26480a0 state=running>: 'ifInOctets-int2', <Future at 0x7fe8e2679040 state=pending>: 'ifOutOctets-int1', <Future at 0x7fe8e27e94f0 state=pending>: 'ifOutOctets-int2'}
+ramMax: 3955968
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 0.52
+ifOperStatus: 1
+sysUpTime: 1220392
+ramDispo: 210516
+networkSpeed: 10000000
+diskSpace: 49
+ifInOctets-int2: 371315741
+ifInOctets-int1: 671887800
+ifOutOctets-int2: 689969739
+ifOutOctets-int1: 671887800
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7fe8e2670d60 state=running>: 'sysName', <Future at 0x7fe8e2730f40 state=running>: 'diskSpace', <Future at 0x7fe8e036c910 state=running>: 'ifOperStatus', <Future at 0x7fe8c2a27910 state=running>: 'sysUpTime', <Future at 0x7fe8c2a06190 state=running>: 'networkSpeed', <Future at 0x7fe8c2a27d30 state=running>: 'cpuUsage', <Future at 0x7fe8c2a03ca0 state=running>: 'ramMax', <Future at 0x7fe8c2a25280 state=running>: 'ramDispo', <Future at 0x7fe8c2a25970 state=running>: 'ifInOctets-int1', <Future at 0x7fe8e0049bb0 state=running>: 'ifInOctets-int2', <Future at 0x7fe8e0049eb0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fe8e003e700 state=pending>: 'ifOutOctets-int2'}
+ifOperStatus: 1
+networkSpeed: 10000000
+ifInOctets-int1: 6548
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+diskSpace: 
+sysUpTime: 688196
+ramDispo: 26180
+ifInOctets-int2: 4947386
+cpuUsage: 0.00
+ramMax: 348924
+ifOutOctets-int1: 6548
+ifOutOctets-int2: 6551200
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7fe8c2a278e0 state=running>: 'sysName', <Future at 0x7fe8c2a50700 state=running>: 'diskSpace', <Future at 0x7fe8c26dbbe0 state=running>: 'ifOperStatus', <Future at 0x7fe8c2a97dc0 state=running>: 'sysUpTime', <Future at 0x7fe8c26d0ee0 state=running>: 'networkSpeed', <Future at 0x7fe8e2e0e670 state=running>: 'cpuUsage', <Future at 0x7fe8e2e0ef40 state=running>: 'ramMax', <Future at 0x7fe8e2e0e7f0 state=running>: 'ramDispo', <Future at 0x7fe8e2e12bb0 state=running>: 'ifInOctets-int1', <Future at 0x7fe8e01e9340 state=running>: 'ifInOctets-int2', <Future at 0x7fe8e01e9a00 state=pending>: 'ifOutOctets-int1', <Future at 0x7fe8e01e9850 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7fcf5eb5eeb0 state=running>: 'sysName', <Future at 0x7fcf5eab3eb0 state=running>: 'diskSpace', <Future at 0x7fcf5eac6430 state=running>: 'ifOperStatus', <Future at 0x7fcf5eac66a0 state=running>: 'sysUpTime', <Future at 0x7fcf5ead11c0 state=running>: 'networkSpeed', <Future at 0x7fcf5eae05b0 state=running>: 'cpuUsage', <Future at 0x7fcf5eae08e0 state=running>: 'ramMax', <Future at 0x7fcf5eaeea60 state=running>: 'ramDispo', <Future at 0x7fcf5d92f970 state=running>: 'ifInOctets-int1', <Future at 0x7fcf5d9bfaf0 state=running>: 'ifInOctets-int2', <Future at 0x7fcf5d9b86d0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fcf5d9d7820 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 1250327
+ramMax: 3955968
+diskSpace: 49
+cpuUsage: 0.21
+ramDispo: 245848
+networkSpeed: 10000000
+ifInOctets-int1: 679749655
+ifInOctets-int2: 372067761
+ifOperStatus: 1
+ifOutOctets-int2: 698025813
+ifOutOctets-int1: 679749655
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7fcf5ead1460 state=running>: 'sysName', <Future at 0x7fcf5d9d7a30 state=running>: 'diskSpace', <Future at 0x7fcf447b5820 state=running>: 'ifOperStatus', <Future at 0x7fcf447b5f70 state=running>: 'sysUpTime', <Future at 0x7fcf447b95e0 state=running>: 'networkSpeed', <Future at 0x7fcf447b9d00 state=running>: 'cpuUsage', <Future at 0x7fcf447a7610 state=running>: 'ramMax', <Future at 0x7fcf447a7d60 state=running>: 'ramDispo', <Future at 0x7fcf447a7f70 state=running>: 'ifInOctets-int1', <Future at 0x7fcf447a7790 state=running>: 'ifInOctets-int2', <Future at 0x7fcf44fbbee0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fcf44b91f70 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 
+networkSpeed: 10000000
+ramMax: 348924
+cpuUsage: 0.00
+ifInOctets-int1: 6548
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramDispo: 26044
+ifOperStatus: 1
+sysUpTime: 718182
+ifInOctets-int2: 5151049
+ifOutOctets-int1: 6548
+ifOutOctets-int2: 6828931
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7fcf5d9bf4c0 state=running>: 'sysName', <Future at 0x7fcf44b87490 state=running>: 'diskSpace', <Future at 0x7fcf45e77850 state=running>: 'ifOperStatus', <Future at 0x7fcf45e77190 state=running>: 'sysUpTime', <Future at 0x7fcf45685670 state=running>: 'networkSpeed', <Future at 0x7fcf44e139d0 state=running>: 'cpuUsage', <Future at 0x7fcf5d9ad8e0 state=running>: 'ramMax', <Future at 0x7fcf4672d370 state=running>: 'ramDispo', <Future at 0x7fcf44621c10 state=running>: 'ifInOctets-int1', <Future at 0x7fcf447a7dc0 state=running>: 'ifInOctets-int2', <Future at 0x7fcf447a78b0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fcf447b58b0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f8d5fd945e0 state=running>: 'sysName', <Future at 0x7f8d5fcdff40 state=running>: 'diskSpace', <Future at 0x7f8d5fcf2550 state=running>: 'ifOperStatus', <Future at 0x7f8d5fcf2d90 state=running>: 'sysUpTime', <Future at 0x7f8d5fcf86a0 state=running>: 'networkSpeed', <Future at 0x7f8d5db4ca60 state=running>: 'cpuUsage', <Future at 0x7f8d5db4cd90 state=running>: 'ramMax', <Future at 0x7f8d5db2f340 state=running>: 'ramDispo', <Future at 0x7f8d5db59460 state=running>: 'ifInOctets-int1', <Future at 0x7f8d5db59d30 state=running>: 'ifInOctets-int2', <Future at 0x7f8d5dbc8be0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f8d5dbcc070 state=pending>: 'ifOutOctets-int2'}
+ifOperStatus: 1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int1: 690685713
+sysUpTime: 1280333
+ramDispo: 123472
+cpuUsage: 0.22
+diskSpace: 49
+networkSpeed: 10000000
+ramMax: 3955968
+ifInOctets-int2: 372904968
+ifOutOctets-int1: 690685713
+ifOutOctets-int2: 708920783
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f8d5fcf2160 state=running>: 'sysName', <Future at 0x7f8d5dca4ca0 state=running>: 'diskSpace', <Future at 0x7f8d3da91d00 state=running>: 'ifOperStatus', <Future at 0x7f8d3da83850 state=running>: 'sysUpTime', <Future at 0x7f8d3da83fa0 state=running>: 'networkSpeed', <Future at 0x7f8d3da905e0 state=running>: 'cpuUsage', <Future at 0x7f8d3da90ca0 state=running>: 'ramMax', <Future at 0x7f8d3df2a2e0 state=running>: 'ramDispo', <Future at 0x7f8d3df2aa60 state=running>: 'ifInOctets-int1', <Future at 0x7f8d3df1c1c0 state=running>: 'ifInOctets-int2', <Future at 0x7f8d3db7b460 state=pending>: 'ifOutOctets-int1', <Future at 0x7f8d3db7b940 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 
+networkSpeed: 10000000
+cpuUsage: 0.08
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ifInOctets-int2: 5366073
+ramMax: 348924
+ifOperStatus: 1
+sysUpTime: 748092
+ramDispo: 27560
+ifInOctets-int1: 7166
+ifOutOctets-int1: 7166
+ifOutOctets-int2: 7121285
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f8d3da91fd0 state=running>: 'sysName', <Future at 0x7f8d5c0d7fd0 state=running>: 'diskSpace', <Future at 0x7f8d3d2988b0 state=running>: 'ifOperStatus', <Future at 0x7f8d3d298730 state=running>: 'sysUpTime', <Future at 0x7f8d3dddab80 state=running>: 'networkSpeed', <Future at 0x7f8d5c198af0 state=running>: 'cpuUsage', <Future at 0x7f8d5c198a00 state=running>: 'ramMax', <Future at 0x7f8d5c198220 state=running>: 'ramDispo', <Future at 0x7f8d3d2fbfd0 state=running>: 'ifInOctets-int1', <Future at 0x7f8d3e6ca190 state=running>: 'ifInOctets-int2', <Future at 0x7f8d3e6d5fa0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f8d3e6d51f0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeoutErreur SNMP: No SNMP response received before timeout
+
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7fd7ea60a5e0 state=running>: 'sysName', <Future at 0x7fd7ea556f40 state=running>: 'diskSpace', <Future at 0x7fd7ea5694c0 state=running>: 'ifOperStatus', <Future at 0x7fd7ea574850 state=running>: 'sysUpTime', <Future at 0x7fd7e93ba8e0 state=running>: 'networkSpeed', <Future at 0x7fd7ea58f190 state=running>: 'cpuUsage', <Future at 0x7fd7ea58fa00 state=running>: 'ramMax', <Future at 0x7fd7ea574a90 state=running>: 'ramDispo', <Future at 0x7fd7ea5820d0 state=running>: 'ifInOctets-int1', <Future at 0x7fd7ea5828b0 state=running>: 'ifInOctets-int2', <Future at 0x7fd7e93ca0a0 state=pending>: 'ifOutOctets-int1', <Future at 0x7fd7e942f5b0 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 49
+ifOperStatus: 1
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+ramMax: 3955968
+ifInOctets-int2: 373425192
+cpuUsage: 0.14
+sysUpTime: 1310355
+networkSpeed: 10000000
+ramDispo: 171820
+ifInOctets-int1: 694839228
+ifOutOctets-int2: 713343403
+ifOutOctets-int1: 694839228
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7fd7eac4a490 state=running>: 'sysName', <Future at 0x7fd7ea5692b0 state=running>: 'diskSpace', <Future at 0x7fd7d8962040 state=running>: 'ifOperStatus', <Future at 0x7fd7e80bfb80 state=running>: 'sysUpTime', <Future at 0x7fd7e80bf850 state=running>: 'networkSpeed', <Future at 0x7fd7e80bf310 state=running>: 'cpuUsage', <Future at 0x7fd7e9449f10 state=running>: 'ramMax', <Future at 0x7fd7e8138820 state=running>: 'ramDispo', <Future at 0x7fd7e8138490 state=running>: 'ifInOctets-int1', <Future at 0x7fd7e8138310 state=running>: 'ifInOctets-int2', <Future at 0x7fd7d89c0580 state=pending>: 'ifOutOctets-int1', <Future at 0x7fd7d89c0ca0 state=pending>: 'ifOutOctets-int2'}
+ramMax: 348924
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 0.00
+ramDispo: 29956
+ifOperStatus: 1
+networkSpeed: 10000000
+ifInOctets-int1: 7166
+diskSpace: 
+ifInOctets-int2: 5589264
+sysUpTime: 778140
+ifOutOctets-int2: 8091209
+ifOutOctets-int1: 7166
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7fd7e80bf430 state=running>: 'sysName', <Future at 0x7fd7ea5746a0 state=running>: 'diskSpace', <Future at 0x7fd7e8073a00 state=running>: 'ifOperStatus', <Future at 0x7fd7e81a35e0 state=running>: 'sysUpTime', <Future at 0x7fd7d83ffcd0 state=running>: 'networkSpeed', <Future at 0x7fd7d8fbb820 state=running>: 'cpuUsage', <Future at 0x7fd7e814c3a0 state=running>: 'ramMax', <Future at 0x7fd7d8dc5b20 state=running>: 'ramDispo', <Future at 0x7fd7e94e1f10 state=running>: 'ifInOctets-int1', <Future at 0x7fd7e9473910 state=running>: 'ifInOctets-int2', <Future at 0x7fd7d8bf7d30 state=pending>: 'ifOutOctets-int1', <Future at 0x7fd7e94e1100 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f74fab4be80 state=running>: 'sysName', <Future at 0x7f74faa9fe80 state=running>: 'diskSpace', <Future at 0x7f74faab2490 state=running>: 'ifOperStatus', <Future at 0x7f74faab2cd0 state=running>: 'sysUpTime', <Future at 0x7f74faab2880 state=running>: 'networkSpeed', <Future at 0x7f74f9106f40 state=running>: 'cpuUsage', <Future at 0x7f74faad9100 state=running>: 'ramMax', <Future at 0x7f74f912ed30 state=running>: 'ramDispo', <Future at 0x7f74f91083d0 state=running>: 'ifInOctets-int1', <Future at 0x7f74f9108be0 state=running>: 'ifInOctets-int2', <Future at 0x7f74f9114610 state=pending>: 'ifOutOctets-int1', <Future at 0x7f74f9139490 state=pending>: 'ifOutOctets-int2'}
+ifOperStatus: 1
+diskSpace: 49
+ramDispo: 163628
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 1340355
+cpuUsage: 0.44
+ramMax: 3955968
+ifInOctets-int1: 703758609
+networkSpeed: 10000000
+ifInOctets-int2: 374164700
+ifOutOctets-int2: 722412322
+ifOutOctets-int1: 703758609
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f74f912e6d0 state=running>: 'sysName', <Future at 0x7f74f9139640 state=running>: 'diskSpace', <Future at 0x7f74f80ec460 state=running>: 'ifOperStatus', <Future at 0x7f74f80ecac0 state=running>: 'sysUpTime', <Future at 0x7f74f80f0190 state=running>: 'networkSpeed', <Future at 0x7f74f80f0790 state=running>: 'cpuUsage', <Future at 0x7f74f81ed8b0 state=running>: 'ramMax', <Future at 0x7f74f81edfd0 state=running>: 'ramDispo', <Future at 0x7f74f81f4700 state=running>: 'ifInOctets-int1', <Future at 0x7f74f81f4d60 state=running>: 'ifInOctets-int2', <Future at 0x7f74e8942be0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f74f80289d0 state=pending>: 'ifOutOctets-int2'}
+diskSpace: 
+ifOperStatus: 1
+ramDispo: 29692
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 808144
+cpuUsage: 0.00
+networkSpeed: 10000000
+ramMax: 348924
+ifInOctets-int2: 5792491
+ifInOctets-int1: 7166
+ifOutOctets-int1: 7166
+ifOutOctets-int2: 8368431
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f74f81ed280 state=running>: 'sysName', <Future at 0x7f74f91143a0 state=running>: 'diskSpace', <Future at 0x7f74e87ca640 state=running>: 'ifOperStatus', <Future at 0x7f74e867cf10 state=running>: 'sysUpTime', <Future at 0x7f74e87ca160 state=running>: 'networkSpeed', <Future at 0x7f74e87c2400 state=running>: 'cpuUsage', <Future at 0x7f74e87c2c70 state=running>: 'ramMax', <Future at 0x7f74e87d23d0 state=running>: 'ramDispo', <Future at 0x7f74e87d2c70 state=running>: 'ifInOctets-int1', <Future at 0x7f74e87d2fd0 state=running>: 'ifInOctets-int2', <Future at 0x7f74e87bfa60 state=pending>: 'ifOutOctets-int1', <Future at 0x7f74f858ba60 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeoutErreur SNMP: No SNMP response received before timeout
+
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+
+Machine: MachineManager; Adresse IP : 20.56.131.151
+{<Future at 0x7f65a3754e50 state=running>: 'sysName', <Future at 0x7f65a36a8e50 state=running>: 'diskSpace', <Future at 0x7f65a36bb460 state=running>: 'ifOperStatus', <Future at 0x7f65a36bbca0 state=running>: 'sysUpTime', <Future at 0x7f65a36c55b0 state=running>: 'networkSpeed', <Future at 0x7f65a36c5b80 state=running>: 'cpuUsage', <Future at 0x7f65a36cc490 state=running>: 'ramMax', <Future at 0x7f65a36bb8b0 state=running>: 'ramDispo', <Future at 0x7f65a36a8c40 state=running>: 'ifInOctets-int1', <Future at 0x7f65a36db5b0 state=running>: 'ifInOctets-int2', <Future at 0x7f65a0587490 state=pending>: 'ifOutOctets-int1', <Future at 0x7f65a05694f0 state=pending>: 'ifOutOctets-int2'}
+sysName: Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+sysUpTime: 1370269
+ifInOctets-int1: 709067683
+diskSpace: 49
+ramMax: 3955968
+cpuUsage: 0.45
+ifOperStatus: 1
+networkSpeed: 10000000
+ifInOctets-int2: 375052847
+ramDispo: 165444
+ifOutOctets-int1: 709067683
+ifOutOctets-int2: 728091521
+
+
+Machine: TestClient; Adresse IP : 20.244.22.230
+{<Future at 0x7f65a36c5c40 state=running>: 'sysName', <Future at 0x7f65a064d0a0 state=running>: 'diskSpace', <Future at 0x7f65a056b4f0 state=running>: 'ifOperStatus', <Future at 0x7f6589e24bb0 state=running>: 'sysUpTime', <Future at 0x7f6589e240a0 state=running>: 'networkSpeed', <Future at 0x7f6589e24f40 state=running>: 'cpuUsage', <Future at 0x7f6589aa55b0 state=running>: 'ramMax', <Future at 0x7f6589444130 state=running>: 'ramDispo', <Future at 0x7f65894445e0 state=running>: 'ifInOctets-int1', <Future at 0x7f6589e244f0 state=running>: 'ifInOctets-int2', <Future at 0x7f65a06418e0 state=pending>: 'ifOutOctets-int1', <Future at 0x7f65a0641f10 state=pending>: 'ifOutOctets-int2'}
+networkSpeed: 10000000
+sysName: Linux MachineTest1 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64
+cpuUsage: 0.00
+ramMax: 348924
+ifOperStatus: 1
+diskSpace: 
+sysUpTime: 838073
+ifInOctets-int1: 7166
+ramDispo: 28008
+ifInOctets-int2: 5999288
+ifOutOctets-int1: 7166
+ifOutOctets-int2: 8650860
+
+
+Machine: MachineEnError; Adresse IP : 192.168.0.100
+{<Future at 0x7f65a0587460 state=running>: 'sysName', <Future at 0x7f65897f93d0 state=running>: 'diskSpace', <Future at 0x7f65897f9fd0 state=running>: 'ifOperStatus', <Future at 0x7f6589bf4880 state=running>: 'sysUpTime', <Future at 0x7f65897f9850 state=running>: 'networkSpeed', <Future at 0x7f6589c6f100 state=running>: 'cpuUsage', <Future at 0x7f65a36bb820 state=running>: 'ramMax', <Future at 0x7f6589c1f610 state=running>: 'ramDispo', <Future at 0x7f6589c1fc40 state=running>: 'ifInOctets-int1', <Future at 0x7f6589bf4400 state=running>: 'ifInOctets-int2', <Future at 0x7f65893cd670 state=pending>: 'ifOutOctets-int1', <Future at 0x7f65a05949d0 state=pending>: 'ifOutOctets-int2'}
+Erreur SNMP: No SNMP response received before timeout
+ifOperStatus: 0
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+Erreur SNMP: No SNMP response received before timeout
+
+

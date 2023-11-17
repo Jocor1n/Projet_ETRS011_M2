@@ -19,7 +19,6 @@ class Machine(models.Model):
 class OID(models.Model):
     name = models.CharField(max_length=255)
     oid = models.CharField(max_length=255)
-    is_Integer = models.BooleanField(default=False)
     Donnee_fixe = models.BooleanField(default=False)
     
     def __str__(self):
@@ -49,7 +48,6 @@ class Graphique(models.Model):
     Graphique_Types = [
         ('Fleche', 'Fleche'),
         ('Curseur', 'Curseur'),
-        ('Comparaison', 'Comparaison'),
         ('Texte', 'Texte')
     ]
     GraphiqueType = models.CharField(max_length=255,choices=Graphique_Types, default='1')
@@ -59,6 +57,15 @@ class Graphique(models.Model):
     OID1 = models.ForeignKey(OID, on_delete=models.CASCADE, related_name='OID1')
     OID2 = models.ForeignKey(OID, on_delete=models.CASCADE, related_name='OID2', blank=True, null=True)
     valeur_max = models.IntegerField(default=0)
-    
+    Donnees_Types = [
+        ('Texte', 'Texte'), 
+        ('Entier', 'Entier'), 
+        ('Boolean', 'Boolean'),    
+        ('Heure', 'Heure'),
+        ('Minutes', 'Minutes'),
+        ('Secondes', 'Secondes')   
+    ]
+    type_de_donnees_entree = models.CharField(max_length=255,choices=Donnees_Types, default='Texte')
+    type_de_donnees_sortie = models.CharField(max_length=255,choices=Donnees_Types, default='Texte')
     def __str__(self):
         return self.name
