@@ -220,8 +220,9 @@ def donnees_machines(request):
     }
     information_types = SurveillanceManager.objects.filter(idMachine=machine).values_list('information_type', flat=True).distinct()
     for info_type in information_types:
-        if info_type != "sysName" and info_type !="ifOperStatus" and info_type !="networkSpeed" and info_type !="sysUpTime":
+        if info_type != "sysName" and info_type !="ifOperStatus" and info_type !="networkSpeed" and info_type != "sysUpTime" and info_type != "diskSpace":
             data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type)
+            print(SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type))
         else :
             data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type).latest("date")
             
@@ -233,6 +234,26 @@ def donnees_machines(request):
             list_temp.append("Texte")
             list_temp.append(data["types"][graphique.OID1.name])
             list_temp.append(data["types"][graphique.OID1.name].data)
+        elif graphique.GraphiqueType == "Curseur":
+            list_temp.append("Curseur")
+            list_temp.append(graphique)
+            list_temp.append(data["types"][graphique.OID1.name])
+        elif graphique.GraphiqueType == "Comparaison":
+            list_temp.append("Comparaison")
+            list_temp.append(graphique)
+            liste_queryset = []
+            for element in data["types"][graphique.OID1.name]:
+                liste_queryset.append(element)
+            list_temp.append(liste_queryset)
+            liste_queryset2 = []
+            try:
+                if data["types"][graphique.OID2.name] != None:
+                    for element in data["types"][graphique.OID2.name]:
+                        liste_queryset2.append(element)
+                    list_temp.append(liste_queryset2)
+            except AttributeError:
+                liste_queryset2.append(None)
+            
         else :
             list_temp.append("Fleche")
             list_temp.append(data["types"][graphique.OID1.name][0].information_type)
@@ -240,6 +261,7 @@ def donnees_machines(request):
             for element in data["types"][graphique.OID1.name]:
                 liste_queryset.append(element.data)
             list_temp.append(liste_queryset)
+            list_temp.append(graphique)
         data_graphiques.append(list_temp)
         
     return render(request, 'liste_donnees.html', {'data_graphiques': data_graphiques, 'machines' : machines, 'graphiques': graphiques, 'form': form})

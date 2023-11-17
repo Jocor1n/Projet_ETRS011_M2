@@ -5,6 +5,7 @@
 <head>
 <script src="https://d3js.org/d3.v6.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
 </head>
 <body>
@@ -14,7 +15,7 @@
         <div class="col-sm-4" align="right"></div>
         <form class="item" method="POST">
         {% csrf_token %}
-        <div class="col-sm-3" align="right">
+        <div class="col-sm-12" align="center">
             <select class="form-select" name="name">
                 <option value=""> Sélectionne une machine...</option>
                 {% for machine in machines %}
@@ -22,7 +23,8 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="col-4" align="left">
+        <div class="col-12" align="center">
+              <br>
               <input type="submit" value="Send Request" name="change_machine"/>
         </div>
         </form>
@@ -39,17 +41,16 @@
                     </div> 
                     <div class="row">
                     {% endif %}
-                <div class="col-sm-12 border border-secondary">
-                    <p class="text-center"> {{data_graphique.1}} : {{data_graphique.2}}</p>
+                <div class="col-sm-12">
+                    <p class="text-center"> {{data_graphique.1.information_type}} : {{data_graphique.1.data}}</p>
                 </div>
                 </div>
                 {% update_variable True as new_row %}
                 {% endif %}
                 
                 {% if data_graphique.0 == "Fleche" %}
-                     <div class="col-sm-6 border border-secondary">
-                         <p class="text-center"> {{data_graphique.1}} </p>
-                         <p class="text-center"> {{data_graphique.2}} </p>
+                     <div class="col-sm-6 ">
+                         <p class="text-center"> {{data_graphique.1}} : {{data_graphique.2}}</p>
                      </div>
                       {% if new_row %}
                            {% update_variable False as new_row %}
@@ -58,12 +59,102 @@
                           {% update_variable True as new_row %}
                       {% endif %}
                  {% endif %}
+                 
+                 {% if data_graphique.0 == "Curseur"%}
+                      <div class="col-sm-6">
+                            <div id="myDiv">
+                            <script>
+                            var data = [
+                                  	{
+                                  		domain: { x: [0, 1], y: [0, 1] },
+                                  		value: {{data_graphique.2.data}},
+                                  		title: { text: "{{data_graphique.1.name}}" },
+                                  		type: "indicator",
+                                  		mode: "gauge+number",
+                                  		gauge: { axis: { range: [null, {{data_graphique.1.valeur_max}}] }}
+                                  	}
+                                  ];
+                                  
+                                  var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+                                  Plotly.newPlot('myDiv', data, layout);
+                            </script>
+                      </div>
+                       {% if new_row %}
+                            {% update_variable False as new_row %}
+                       {% else %}
+                           </div> 
+                           {% update_variable True as new_row %}
+                       {% endif %}
+                  {% endif %}
+                  
+                   {% if data_graphique.0 == "Comparaison" %}
+                        <div class="col-sm-6">
+                           <div id="{{ data_graphique.1.id}}"></div>
+                                                 
+                        </div>
+                        
+                         {% if new_row %}
+                              {% update_variable False as new_row %}
+                         {% else %}
+                             </div> 
+                             {% update_variable True as new_row %}
+                         {% endif %}
+                         
+                         <script>
+                           
+                           var trace1 = {
+  x: [{% for data_graphique in data_graphique.2 %}
+        '{{ data_graphique.date }}'{% if not forloop.last %}, {% endif %}
+    {% endfor %}],
+  y: [{% for data_graphique in data_graphique.2 %}
+        '{{ data_graphique.data }}'{% if not forloop.last %}, {% endif %}
+    {% endfor %}],
+  mode: 'lines+markers',
+  name: '{{data_graphique.2.0.information_type}}'
+};
+
+{% if data_graphique.3 != "None" %}
+var trace2 = {
+  x: [{% for data_graphique in data_graphique.3 %}
+        '{{ data_graphique.date }}'{% if not forloop.last %}, {% endif %}
+    {% endfor %}],
+  y: [{% for data_graphique in data_graphique.3 %}
+        '{{ data_graphique.data }}'{% if not forloop.last %}, {% endif %}
+    {% endfor %}],
+  mode: 'lines+markers',
+  name: '{{data_graphique.3.0.information_type}}'
+};
+{% endif %}
+
+{% if data_graphique.3 != "None"%}
+var data = [ trace1, trace2];
+    {% else %}
+var data = [ trace1];
+ {% endif %}
+
+var layout = {
+  title: '{{data_graphique.1.name}}',
+  xaxis: {
+    title: '{{data_graphique.1.axex}}'
+  },
+  yaxis: {
+    title: '{{data_graphique.1.axey}}'
+  }
+};
+
+Plotly.newPlot('{{ data_graphique.1.id}}', data, layout);
+                           
+                           
+                           </script>  
+                    {% endif %}
+                  
+                 
             {% endfor%}
         {% endwith %}
         {% with last_sublist=data_graphiques|last %}
-            {% if last_sublist.0 == "Fleche" %}
+            {% if last_sublist.0 == "Fleche" or last_sublist.0 == "Curseur" or last_sublist.0 == "Fleche" %}
                 {% with penultimate_sublist=data_graphiques|get_penultimate %}
-                    {% if penultimate_sublist.0 != "Fleche" %}
+                    {% if penultimate_sublist.0 != "Fleche" or penultimate_sublist.0 != "Curseur" or penultimate_sublist.0 != "Fleche" %}
                         </div>
                     {% endif %}
                 {% endwith %}
