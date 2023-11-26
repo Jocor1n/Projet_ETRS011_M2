@@ -1,0 +1,16 @@
+{% include 'template.html' %} 
+<form class="item" method="POST">
+    {% csrf_token %}
+    <p><strong>Pour ajouter un utilisateur : </strong></p>
+
+    <p>OID :</p>
+    {{ form.OID }}
+    
+    <p>Machine :</p>
+    {{ form.machine }}
+
+    <br/><br/>
+    <input class="button_cursor" type="submit" name="add_machine_oid" value="Ajouter une machine à un oid" />
+    <br/><br/>
+    <a href="{% url 'liste_oids' %}">Retour à la liste des OIDs</a>
+</form>

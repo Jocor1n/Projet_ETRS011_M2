@@ -1,0 +1,30 @@
+{% include 'template.html' %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un oid</title>
+</head>
+<body>
+    <h1>Modifier l'oid</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Graphique :</p>
+        {{ form.graphique }}
+
+        <p>Machine :</p>
+        {{ form.machine }}
+        
+         <p>Ordre:</p>
+         {{ form.ordre }}
+         
+        </br></br>
+        <button class="btn btn-success" type="submit">Mettre à jour</button>
+    </form>
+
+    <br>
+    <a class="btn btn-outline-primary" href="{% url 'liste_graphiques' %}">Retour à la liste des graphiques</a>
+</body>
+</html>

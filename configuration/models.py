@@ -69,3 +69,20 @@ class Graphique(models.Model):
     type_de_donnees_sortie = models.CharField(max_length=255,choices=Donnees_Types, default='Texte')
     def __str__(self):
         return self.name
+
+class Machine_has_OID(models.Model):
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
+    OID = models.ForeignKey(OID, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.machine.name + " " +  self.OID.name
+
+class Graphique_has_Machine(models.Model):
+    graphique = models.ForeignKey(Graphique, on_delete=models.CASCADE)
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
+    ordre = models.IntegerField(default=1)
+    
+    def __str__(self):
+        return self.graphique.name + " "+ self.machine.name
+    
+

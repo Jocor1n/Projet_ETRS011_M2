@@ -9,6 +9,7 @@
 <body>
     <h1>Liste des Graphiques</h1>
     <a class="btn btn-primary" href="{% url 'add_graphique' %}">Ajouter un graphique</a>
+    
     <table class="table">
         <thead>
             <tr>
@@ -25,21 +26,51 @@
             </tr>
         </thead>
         <tbody>
-            {% for graphique in graphiques %}
+            {% for key, values in dictionary_graphiques.items %}
             <tr>
-                <td><a class="btn btn-danger" href="{% url 'delete_graphique' graphique.id %}">Supprimer</a></td>
-                <td><a class="btn btn-secondary" href="{% url 'edit_graphique' graphique.id %}">Editer</a></td>
-                <td>{{ graphique.name }}</td>
-                <td>{{ graphique.get_GraphiqueType_display }}</td>
-                <td>{{ graphique.axex|default_if_none:'' }}</td>
-                <td>{{ graphique.axey|default_if_none:'' }}</td>
-                <td>{{ graphique.ordre }}</td>
-                <td>{{ graphique.OID1.name }}</td>
-                <td>{{ graphique.OID2.name }}</td>
-                <td>{{ graphique.valeur_max }}</td>
+                <td><a class="btn btn-danger" href="{% url 'delete_graphique' key.id %}">Supprimer</a></td>
+                <td><a class="btn btn-secondary" href="{% url 'edit_graphique' key.id %}">Editer</a></td>
+                <td>{{ key.name }}</td>
+                <td>{{ key.get_GraphiqueType_display }}</td>
+                <td>{{ key.axex|default_if_none:'' }}</td>
+                <td>{{ key.axey|default_if_none:'' }}</td>
+                <td>{{ key.ordre }}</td>
+                <td>{{ key.OID1.name }}</td>
+                <td>{{ key.OID2.name }}</td>
+                <td>{{ key.valeur_max }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'add_graphique_has_machine' key.id %}">Ajouter</a></br>
+                    {% for v in values %}
+                        <a class="btn btn-danger" href="{% url 'delete_graphique_has_machine' v.id %}">X  {{ v.machine }} </a><br>
+                    {% endfor %}
+                    </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    
+    
+     <h1>Gestion de l'affichage des graphiques par Machine</h1>
+     {% for key, values in dictionary_machines.items %}
+     <h2>Nom de la machine : {{key.name}}</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" >graphique</th>
+                <th scope="col" >Ordre</th>
+                <th scope="col" >Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for v in values %}
+            <tr>
+                <td>{{ v.graphique }}</td>
+                <td>{{ v.ordre }}</td>
+                <td><a class="btn btn-secondary" href="{% url 'edit_graphique_machine' v.id %}">Editer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>    
+      </table>  
+      {% endfor %}
 </body>
 </html>

@@ -4,6 +4,8 @@ import os
 import json
 from pysnmp.hlapi import SnmpEngine, CommunityData, UdpTransportTarget, ContextData, ObjectType, ObjectIdentity, getCmd
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from django.utils import timezone
+
 
 def json_test():
     chemin_fichier_json = os.path.join(settings.MEDIA_ROOT, 'config.json')
@@ -45,19 +47,19 @@ def json_test():
         machine_name = machine.get("name")
         machine_ip = machine.get("ip")
         results = {}
-        print(f"Machine: {machine_name}; Adresse IP : {machine_ip}")
+        print(f"{timezone.now()} Machine: {machine_name}; Adresse IP : {machine_ip}")
     
         # Création d'un pool de threads pour exécuter les requêtes SNMP
         with ThreadPoolExecutor(max_workers=10) as executor:
             future_to_oid = {executor.submit(snmp_get_threaded, oid_name, oid_value, machine_ip): oid_name for oid_name, oid_value in oids.items()}
-            print(future_to_oid)
+            print(timezone.now, future_to_oid)
             for future in as_completed(future_to_oid):
                 oid_name, result = future.result()
                 if result is not None:
-                    print(f"{oid_name}: {result}")
+                    print(f"{timezone.now()} {oid_name}: {result}")
                     results[oid_name] = str(result)
                 elif oid_name == "ifOperStatus":
-                    print(f"{oid_name}: 0")
+                    print(f"{timezone.now()} {oid_name}: 0")
                     results[oid_name] = str(0)
                     Logs.objects.create(idMachine=Machine.objects.get(name=machine_name), type_log="Error", informations="Hôte Non actif", is_error=True)
                 
@@ -87,10 +89,10 @@ def snmp_get(oid, host='localhost', community='public', timeout=1):
                ObjectType(ObjectIdentity(oid)))
     )
     if errorIndication:
-        print(f"Erreur SNMP: {errorIndication}")
+        print(f"{timezone.now()} Erreur SNMP: {errorIndication}")
         return None
     elif errorStatus:
-        print(f"Erreur SNMP: {errorStatus} at {errorIndex}")
+        print(f"{timezone.now()} Erreur SNMP: {errorStatus} at {errorIndex}")
         return None
     else:
         return varBinds[0][1]    

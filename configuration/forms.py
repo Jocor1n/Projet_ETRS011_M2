@@ -1,5 +1,5 @@
 from django import forms
-from .models import Machine, Graphique, OID
+from .models import Machine, Graphique, OID, Machine_has_OID, Graphique_has_Machine
 
 class MachineForm (forms.ModelForm):
     class Meta :
@@ -32,3 +32,12 @@ class GetMachineForm (forms.Form):
     name = forms.CharField(max_length=255)
 
 
+class MachinehasOIDForm(forms.ModelForm):
+    class Meta :
+        model = Machine_has_OID
+        fields = ['machine', 'OID']
+
+class GraphiquehasMachineForm(forms.ModelForm):
+    class Meta :
+        model = Graphique_has_Machine
+        fields = ['graphique', 'machine', 'ordre']

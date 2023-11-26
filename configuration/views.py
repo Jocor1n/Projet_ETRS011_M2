@@ -1,15 +1,11 @@
-from .models import Machine, OID, SurveillanceManager, Logs, Graphique
-from .forms import MachineForm, UtilisateurForm, OIDForm, GraphiqueForm, GetMachineForm
+from .models import Machine, OID, SurveillanceManager, Logs, Graphique, Machine_has_OID, Graphique_has_Machine
+from .forms import MachineForm, UtilisateurForm, OIDForm, GraphiqueForm, GetMachineForm, MachinehasOIDForm, GraphiquehasMachineForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.conf import settings 
 import os
-import json
-from pysnmp.hlapi import SnmpEngine, CommunityData, UdpTransportTarget, ContextData, ObjectType, ObjectIdentity, getCmd
 from django.http import HttpResponse
-
-
 
 @login_required
 def index(request):
@@ -134,7 +130,13 @@ def add_oid(request):
 @login_required
 def liste_oids(request):
     oids = OID.objects.all()
-    return render(request, 'liste_oids.html', {'oids': oids})
+    machines_oids = Machine_has_OID.objects.all()
+    
+    dictionary = {}
+    for oid in oids :
+        dictionary.update({oid: list(Machine_has_OID.objects.all().filter(OID=oid))})
+    
+    return render(request, 'liste_oids.html', {'oids': oids, 'dictionary': dictionary, 'machines_oids':machines_oids})
 
 @login_required
 def edit_oid(request, oid_id):
@@ -158,6 +160,81 @@ def delete_oid(request, oid_id):
         return redirect('liste_oids')
     return render(request, 'confirm_delete_oids.html', {'object': oid})
 
+""" ADD and DELETE Machine_has_OID"""
+
+@login_required
+def add_machine_has_OID(request, key):
+    OID_machine = OID.objects.get(name=key)  
+
+    if request.method == 'POST' and 'add_machine_oid' in request.POST:
+        form = MachinehasOIDForm(request.POST)  
+        if form.is_valid():
+            machine_value = form.cleaned_data['machine']
+            oid_value = form.cleaned_data['OID']
+            if not Machine_has_OID.objects.filter(OID=oid_value, machine=machine_value).exists() :
+                form.save()
+            return redirect("liste_oids")
+        else:
+            print(form.errors)
+    else: 
+        form = MachinehasOIDForm(initial={'OID': OID_machine})
+
+    return render(request, 'add_machine_oid.html', {'form': form, 'OID_machine': OID_machine})
+
+
+@login_required
+def delete_machine_has_OID(request, machine_oid_id):
+    machine_oid = get_object_or_404(Machine_has_OID, id=machine_oid_id)
+    if request.method == 'POST':
+        machine_oid.delete()
+        return redirect('liste_oids')
+    return render(request, 'confirm_delete_machine_oid.html', {'object': machine_oid})
+
+""" ADD, EDIT and DELETE Graphique_has_Machine"""
+
+@login_required
+def add_graphique_has_machine(request, key):
+    graphique_machine = get_object_or_404(Graphique, id=key)
+
+    if request.method == 'POST' and 'add_graphique_machine' in request.POST:
+        form = GraphiquehasMachineForm(request.POST)  
+        if form.is_valid():
+            machine_value = form.cleaned_data['machine']
+            graphique_value = form.cleaned_data['graphique']
+            if not Graphique_has_Machine.objects.filter(graphique=graphique_value, machine=machine_value).exists() :
+                form.save()
+            return redirect("liste_graphiques")
+        else:
+            print(form.errors)
+    else: 
+        form = GraphiquehasMachineForm(initial={'graphique': graphique_machine})
+
+    return render(request, 'add_graphique_machine.html', {'form': form, 'graphique_machine': graphique_machine})
+
+
+@login_required
+def delete_graphique_has_machine(request, graphique_machine_id):
+    graphique_machine = get_object_or_404(Graphique_has_Machine, id=graphique_machine_id)
+    if request.method == 'POST':
+        graphique_machine.delete()
+        return redirect('liste_graphiques')
+    return render(request, 'confirm_delete_graphique_machine.html', {'object': graphique_machine})
+
+
+@login_required
+def edit_graphique_machine(request, graphique_machine_id):
+    graphique = get_object_or_404(Graphique_has_Machine, id=graphique_machine_id)
+    if request.method == 'POST':
+        form = GraphiquehasMachineForm(request.POST, instance=graphique )
+        if form.is_valid():
+            form.save()
+            return redirect('liste_graphiques')
+    else:
+        form = GraphiquehasMachineForm(instance=graphique)
+    
+    return render(request, 'edit_graphique_machine.html', {'form': form})
+
+
 """ CRUD Graphiques """
 
 @login_required
@@ -177,7 +254,17 @@ def add_graphique(request):
 @login_required
 def liste_graphiques(request):
     graphiques = Graphique.objects.all().order_by('ordre')
-    return render(request, 'liste_graphiques.html', {'graphiques': graphiques})
+    machines = Machine.objects.all()
+    
+    dictionary_machines = {}
+    for machine in machines :
+        dictionary_machines.update({machine: list(Graphique_has_Machine.objects.all().filter(machine=machine).order_by('ordre'))})
+    
+    dictionary_graphiques = {}
+    for graphique in graphiques :
+        dictionary_graphiques.update({graphique: list(Graphique_has_Machine.objects.all().filter(graphique=graphique))})
+    
+    return render(request, 'liste_graphiques.html', {'graphiques': graphiques, 'dictionary_machines': dictionary_machines, 'dictionary_graphiques':dictionary_graphiques})
 
 @login_required
 def edit_graphique(request, graphique_id):

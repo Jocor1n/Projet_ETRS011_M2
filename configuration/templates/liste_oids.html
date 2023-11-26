@@ -7,8 +7,8 @@
     <title>Liste des OIDS</title>
 </head>
 <body>
-    <h1>Liste des OIDS</h1>
     <a class="btn btn-primary" href="{% url 'add_oid' %}">Ajouter un oid</a>
+    <h1>Liste des OIDS</h1>
     <table class="table">
         <thead>
             <tr>
@@ -18,19 +18,26 @@
                 <th scope="col" >OID</th>
                 <th scope="col" >Est un entier</th>
                 <th scope="col" >Est une donnée fixe</th>
+                <th scope="col" >Machines ayant cet OID</th>
             </tr>
         </thead>
         <tbody>
-            {% for oid in oids %}
-            <tr>
-                <td><a class="btn btn-danger" href="{% url 'delete_oid' oid.id %}">Supprimer</a></td>
-                <td><a class="btn btn-secondary" href="{% url 'edit_oid' oid.id %}">Editer</a></td>
-                <td>{{ oid.name }}</td>
-                <td>{{ oid.oid }}</td>
-                <td>{{ oid.is_Integer }}</td>
-                <td>{{ oid.Donnee_fixe }}</td>
+        {% for key, values in dictionary.items %}
+            <tr>    
+                    <td><a class="btn btn-danger" href="{% url 'delete_oid' key.id %}">Supprimer</a></td>
+                    <td><a class="btn btn-secondary" href="{% url 'edit_oid' key.id %}">Editer</a></td>
+                    <td>{{ key.name }}</td>
+                    <td>{{ key.oid }}</td>
+                    <td>{{ key.is_Integer }}</td>
+                    <td>{{ key.Donnee_fixe }}</td>
+                    <td>
+                    <a class="btn btn-primary" href="{% url 'add_machine_has_OID' key %}">Ajouter</a></br>
+                    {% for v in values %}
+                        <a class="btn btn-danger" href="{% url 'delete_machine_has_OID' v.id %}">X  {{ v.machine }} </a><br>
+                    {% endfor %}
+                    </td>
             </tr>
-            {% endfor %}
+         {% endfor %}
         </tbody>
     </table>
 </body>
