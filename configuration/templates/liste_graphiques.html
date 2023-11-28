@@ -10,7 +10,7 @@
     <h1>Liste des Graphiques</h1>
     <a class="btn btn-primary" href="{% url 'add_graphique' %}">Ajouter un graphique</a>
     
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col" >Suppressions</th>
@@ -19,10 +19,11 @@
                 <th scope="col" >Type de graphique</th>
                 <th scope="col" >Axe x</th>
                 <th scope="col" >Axe y</th>
-                <th scope="col" >ordre</th>
                 <th scope="col" >OID 1</th>
                 <th scope="col" >OID 2</th>
                 <th scope="col" >Valeur max</th>
+                <th scope="col" >Valeur en entree</th>
+                <th scope="col" >Valeur en sortie</th>
             </tr>
         </thead>
         <tbody>
@@ -34,10 +35,11 @@
                 <td>{{ key.get_GraphiqueType_display }}</td>
                 <td>{{ key.axex|default_if_none:'' }}</td>
                 <td>{{ key.axey|default_if_none:'' }}</td>
-                <td>{{ key.ordre }}</td>
                 <td>{{ key.OID1.name }}</td>
                 <td>{{ key.OID2.name }}</td>
                 <td>{{ key.valeur_max }}</td>
+                <td>{{ key.type_de_donnees_entree }}</td>
+                <td>{{ key.type_de_donnees_sortie }}</td>
                 <td>
                     <a class="btn btn-primary" href="{% url 'add_graphique_has_machine' key.id %}">Ajouter</a></br>
                     {% for v in values %}
@@ -53,7 +55,7 @@
      <h1>Gestion de l'affichage des graphiques par Machine</h1>
      {% for key, values in dictionary_machines.items %}
      <h2>Nom de la machine : {{key.name}}</h2>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col" >graphique</th>

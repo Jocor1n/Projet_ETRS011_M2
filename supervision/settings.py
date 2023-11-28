@@ -79,23 +79,10 @@ WSGI_APPLICATION = 'supervision.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
-
-        'ENGINE': 'django.db.backends.mysql',
-
-        'NAME': 'supervision',
-
-        'USER': 'admin',
-
-        'PASSWORD': 'password',
-
-        'HOST': 'localhost',  # Set to the address of your MySQL instance.
-
-        'PORT': '3306',       # Default port for MySQL.
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-
 }
 
 # Password validation

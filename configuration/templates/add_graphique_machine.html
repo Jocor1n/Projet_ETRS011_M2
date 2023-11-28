@@ -1,7 +1,7 @@
 {% include 'template.html' %} 
 <form class="item" method="POST">
     {% csrf_token %}
-    <p><strong>Pour ajouter un utilisateur : </strong></p>
+    <p><strong>Pour ajouter un graphique à une machine : </strong></p>
 
     <p>Graphique :</p>
     {{ form.graphique }}
@@ -13,7 +13,7 @@
     {{ form.ordre }}
 
     <br/><br/>
-    <input class="button_cursor" type="submit" name="add_graphique_machine" value="Ajouter un graphique à un oid" />
+    <input class="button_cursor" type="submit" name="add_graphique_machine" value="Ajouter un graphique à une machine" />
     <br/><br/>
     <a href="{% url 'liste_oids' %}">Retour à la liste des OIDs</a>
 </form>

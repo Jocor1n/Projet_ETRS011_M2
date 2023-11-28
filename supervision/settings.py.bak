@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOGOUT_REDIRECT_URL = '/loginpage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -37,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'configuration.apps.ConfigurationConfig',
+    'configuration',
     'loginpage',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -76,10 +79,23 @@ WSGI_APPLICATION = 'supervision.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        'ENGINE': 'django.db.backends.mysql',
+
+        'NAME': 'supervision',
+
+        'USER': 'admin',
+
+        'PASSWORD': 'password',
+
+        'HOST': 'localhost',  # Set to the address of your MySQL instance.
+
+        'PORT': '3306',       # Default port for MySQL.
+
     }
+
 }
 
 # Password validation
@@ -100,13 +116,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CRONJOBS = [
+('*/5 * * * *', 'configuration.json_interroge.json_test', '>> ' + os.path.join(BASE_DIR,'log/debug7.log' + ' 2>&1 '))
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -124,3 +143,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/loginpage'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

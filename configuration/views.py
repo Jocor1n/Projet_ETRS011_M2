@@ -72,10 +72,16 @@ def add_user(request):
             # Utilisez create_user pour le hachage correct du mot de passe
             user = User.objects.create_user(username=username, password=password, email=email, 
                                             first_name=first_name, last_name=last_name)
+            
             if is_admin:
                 user.is_superuser = True
                 user.is_staff = True
                 user.save()
+            else: 
+                user.is_superuser = False
+                user.is_staff = False
+                user.save()
+                
 
             return redirect("liste_users")
         else:
@@ -102,12 +108,36 @@ def delete_user(request, user_id):
 def edit_user(request, user_id):
     user = get_object_or_404(User, id=user_id)
     if request.method == 'POST':
-        form = UtilisateurForm(request.POST, instance=user)
+        form = UtilisateurForm(request.POST)
         if form.is_valid():
-            form.save()
+            user.username = form.cleaned_data['login']
+            user.last_name = form.cleaned_data['last_name']
+            user.first_name = form.cleaned_data['first_name']
+            user.email = form.cleaned_data['mail'] 
+                        
+            if form.cleaned_data['password'] != ""   :
+                user.set_password(form.cleaned_data['password'])
+            
+            is_admin = form.cleaned_data['is_admin']
+            
+            if is_admin:
+                user.is_superuser = True
+                user.is_staff = True
+            else:
+                user.is_superuser = False
+                user.is_staff = False
+            
+            user.save()
+        
             return redirect('liste_users')
     else:
-        form = UtilisateurForm(instance=user)
+        form = UtilisateurForm(initial={
+    'login': user.username,
+    'last_name': user.last_name,
+    'first_name': user.first_name,
+    'is_admin': user.is_superuser,
+    'mail': user.email
+})
     
     return render(request, 'edit_user.html', {'form': form})
 
@@ -197,7 +227,7 @@ def add_graphique_has_machine(request, key):
     graphique_machine = get_object_or_404(Graphique, id=key)
 
     if request.method == 'POST' and 'add_graphique_machine' in request.POST:
-        form = GraphiquehasMachineForm(request.POST)  
+        form = GraphiquehasMachineForm(request.POST, graphique=graphique_machine)  
         if form.is_valid():
             machine_value = form.cleaned_data['machine']
             graphique_value = form.cleaned_data['graphique']
@@ -207,7 +237,7 @@ def add_graphique_has_machine(request, key):
         else:
             print(form.errors)
     else: 
-        form = GraphiquehasMachineForm(initial={'graphique': graphique_machine})
+        form = GraphiquehasMachineForm(graphique=graphique_machine)
 
     return render(request, 'add_graphique_machine.html', {'form': form, 'graphique_machine': graphique_machine})
 
@@ -223,16 +253,19 @@ def delete_graphique_has_machine(request, graphique_machine_id):
 
 @login_required
 def edit_graphique_machine(request, graphique_machine_id):
-    graphique = get_object_or_404(Graphique_has_Machine, id=graphique_machine_id)
+    graphique_machine = get_object_or_404(Graphique_has_Machine, id=graphique_machine_id)
+    graphique_instance = graphique_machine.graphique
+
     if request.method == 'POST':
-        form = GraphiquehasMachineForm(request.POST, instance=graphique )
+        form = GraphiquehasMachineForm(request.POST, instance=graphique_machine, graphique=graphique_instance)
         if form.is_valid():
             form.save()
             return redirect('liste_graphiques')
     else:
-        form = GraphiquehasMachineForm(instance=graphique)
+        form = GraphiquehasMachineForm(instance=graphique_machine, graphique=graphique_instance)
     
     return render(request, 'edit_graphique_machine.html', {'form': form})
+
 
 
 """ CRUD Graphiques """
@@ -253,7 +286,7 @@ def add_graphique(request):
 
 @login_required
 def liste_graphiques(request):
-    graphiques = Graphique.objects.all().order_by('ordre')
+    graphiques = Graphique.objects.all()
     machines = Machine.objects.all()
     
     dictionary_machines = {}
@@ -274,6 +307,8 @@ def edit_graphique(request, graphique_id):
         if form.is_valid():
             form.save()
             return redirect('liste_graphiques')
+        else:
+            print(form.errors)
     else:
         form = GraphiqueForm(instance=graphique)
     
@@ -291,7 +326,7 @@ def delete_graphique(request, graphique_id):
 @login_required
 def donnees_machines(request):
     machines = Machine.objects.all()
-    graphiques = Graphique.objects.all().order_by("ordre")
+    # graphiques = Graphique.objects.all().order_by("ordre")
     
     machine = machines[0]
 
@@ -303,58 +338,110 @@ def donnees_machines(request):
     else:
         form = GetMachineForm()
     
+    # Récupération des graphiques liés à la machine sélectionnée
+    graphiques_machines = Graphique_has_Machine.objects.filter(machine=machine).order_by('ordre')
+    graphiques = [gm.graphique for gm in graphiques_machines]
+
     data = {
         'name': machine,
         'types': {},
     }
+
+    # Votre traitement des informations reste inchangé
     information_types = SurveillanceManager.objects.filter(idMachine=machine).values_list('information_type', flat=True).distinct()
     for info_type in information_types:
-        if  OID.objects.get(name=info_type).Donnee_fixe == False :
+        if OID.objects.get(name=info_type).Donnee_fixe == False:
             data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type)
-            print(SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type))
-        else :
+        else:
             data['types'][info_type] = SurveillanceManager.objects.filter(idMachine=machine, information_type=info_type).latest("date")
-            
-    data_graphiques = []      
+
+    data_graphiques = []   
+    
+    
+    def format_hours(hours):
+        return f"{hours}h 0min 0secondes"
+    
+    def format_minutes(minutes):
+        minutes = int(minutes)
+        hours = minutes // 60
+        minutes = minutes % 60
+        return f"{hours}h {minutes}min 0secondes"
+    
+    def format_seconds(seconds):
+        seconds = int(seconds)
+        hours = seconds // 3600
+        minutes = (seconds % 3600) // 60
+        seconds = seconds % 60
+        return f"{hours}h {minutes}min {seconds}secondes"
+    
+    def ratio_to_pourcentage(ratio):
+        return ratio * 100
+    
+    def pourcentage_to_ratio(pourcentage):
+        return pourcentage / 100
+    
+    def boulean_to_text(boolean):
+        if boolean == True :
+            return "Vrai"
+        else:
+            return "Faux"
+    
     
     for graphique in graphiques :
         list_temp = []
         if graphique.GraphiqueType == "Texte" :
             list_temp.append("Texte")
             list_temp.append(graphique)
-            try:
-                list_temp.append(data["types"][graphique.OID1.name])
+           
+            list_temp.append(data["types"][graphique.OID1.name])
+            if graphique.type_de_donnees_entree == graphique.type_de_donnees_sortie:
                 list_temp.append(data["types"][graphique.OID1.name].data)
-            except KeyError:
-                pass
+            else:
+                to_convert = data["types"][graphique.OID1.name].data
+                
+                if graphique.type_de_donnees_entree == "Heure":
+                    to_convert = format_hours(to_convert)
+                
+                elif graphique.type_de_donnees_entree == "Minute":
+                    to_convert = format_minutes(to_convert)
+                    
+                elif graphique.type_de_donnees_entree == "Seconde":
+                    to_convert = format_seconds(to_convert)
+                             
+                elif graphique.type_de_donnees_entree == "Ratio" and graphique.type_de_donnees_sortie == "Pourcentage":
+                    to_convert = ratio_to_pourcentage(to_convert)
+            
+                elif graphique.type_de_donnees_entree == "Pourcentage" and graphique.type_de_donnees_sortie == "Ratio":
+                    to_convert = pourcentage_to_ratio(to_convert)
+                    
+                elif graphique.type_de_donnees_entree == "Boolean" and graphique.type_de_donnees_sortie == "Texte":
+                    to_convert = boulean_to_text(to_convert)
+                    
+                list_temp.append(to_convert)
+           
         elif graphique.GraphiqueType == "Curseur":
             list_temp.append("Curseur")
             list_temp.append(graphique)
-            try:
-                list_temp.append(data["types"][graphique.OID1.name])
-            except KeyError:
-                pass
+            list_temp.append(data["types"][graphique.OID1.name])
         else :
             list_temp.append("Fleche")
             list_temp.append(graphique)
             liste_queryset = []
+            for element in list(data["types"][graphique.OID1.name]):
+                liste_queryset.append(element)
+            list_temp.append(liste_queryset)
+            liste_queryset2 = []
             try:
-                for element in data["types"][graphique.OID1.name]:
-                    liste_queryset.append(element)
-                list_temp.append(liste_queryset)
-                liste_queryset2 = []
-                try:
-                    if data["types"][graphique.OID2.name] != None:
-                        for element in data["types"][graphique.OID2.name]:
-                            liste_queryset2.append(element)
-                        list_temp.append(liste_queryset2)
-                except AttributeError:
-                    liste_queryset2.append(None)
-            except KeyError:
-                pass
+                if data["types"][graphique.OID2.name] != None:
+                    for element in list(data["types"][graphique.OID2.name]):
+                         liste_queryset2.append(element)
+                    list_temp.append(liste_queryset2)
+            except AttributeError:
+                liste_queryset2.append(None)
+            
         data_graphiques.append(list_temp)
         
-    return render(request, 'liste_donnees.html', {'data_graphiques': data_graphiques, 'machines' : machines, 'graphiques': graphiques, 'form': form})
+    return render(request, 'liste_donnees.html', {'data_graphiques': data_graphiques, 'machines' : machines, 'form': form})
 
 
 @login_required

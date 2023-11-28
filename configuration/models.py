@@ -53,7 +53,6 @@ class Graphique(models.Model):
     GraphiqueType = models.CharField(max_length=255,choices=Graphique_Types, default='1')
     axex = models.CharField(max_length=255, blank=True, null=True)
     axey = models.CharField(max_length=255, blank=True, null=True)
-    ordre = models.IntegerField()
     OID1 = models.ForeignKey(OID, on_delete=models.CASCADE, related_name='OID1')
     OID2 = models.ForeignKey(OID, on_delete=models.CASCADE, related_name='OID2', blank=True, null=True)
     valeur_max = models.IntegerField(default=0)
@@ -62,8 +61,10 @@ class Graphique(models.Model):
         ('Entier', 'Entier'), 
         ('Boolean', 'Boolean'),    
         ('Heure', 'Heure'),
-        ('Minutes', 'Minutes'),
-        ('Secondes', 'Secondes')   
+        ('Minute', 'Minute'),
+        ('Seconde', 'Seconde'),
+        ('Ratio', 'Ratio'),
+        ('Pourcentage', 'Pourcentage')
     ]
     type_de_donnees_entree = models.CharField(max_length=255,choices=Donnees_Types, default='Texte')
     type_de_donnees_sortie = models.CharField(max_length=255,choices=Donnees_Types, default='Texte')

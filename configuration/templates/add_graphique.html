@@ -9,26 +9,56 @@
     <p>Type de graphique :</p>
     {{ form.GraphiqueType }}
     
+    <div id="axes-section" style="display:none;">
     <p>Axe x :</p>
     {{ form.axex }}
     
     <p>Axe y :</p>
     {{ form.axey }}
-    
-    <p>Ordre :</p>
-    {{ form.ordre }}
+    </div>
     
     <p>OID 1 :</p>
     {{ form.OID1 }}
     
-    <p>OID 2 :</p>
-    {{ form.OID2 }}
+     <div id="oid2-section" style="display:none;">
+        <p>OID 2 :</p>
+        {{ form.OID2 }}
+     </div>
     
-    <p>Valeur max :</p>
-    {{ form.valeur_max }}
+     <div id="valeur-max-section" style="display:none;">
+        <p>Valeur max :</p>
+        {{ form.valeur_max }}
+     </div>
+    
+     <p>Valeur en entrée </p>
+     {{ form.type_de_donnees_entree }}
+     
+      <p>Valeur en sortie</p>
+      {{ form.type_de_donnees_sortie }}
+    
+    <script>
+    function toggleFields() {
+        var typeSelect = document.querySelector("[name='GraphiqueType']");
+        var selectedType = typeSelect.value;
+
+        // Masquer ou afficher les champs en fonction du type sélectionné
+        var showAxes = selectedType !== "Texte" && selectedType !== "Curseur";
+        var showOID2 = selectedType !== "Texte" && selectedType !== "Curseur";
+        var showValeurMax = selectedType !== "Texte" && selectedType !== "Fleche";
+
+        document.getElementById('axes-section').style.display = showAxes ? 'block' : 'none';
+        document.getElementById('oid2-section').style.display = showOID2 ? 'block' : 'none';
+        document.getElementById('valeur-max-section').style.display = showValeurMax ? 'block' : 'none';
+    }
+
+    document.querySelector("[name='GraphiqueType']").addEventListener('change', toggleFields);
+
+    // Exécuter la fonction au chargement de la page
+    toggleFields();
+    </script>
     
     <br/><br/>
     <input class="button_cursor" type="submit" name="add_graphique" value="Ajouter un graphique" />
     <br/><br/>
-    <a href="{% url 'liste_oids' %}">Retour à la liste des graphiques</a>
+    <a href="{% url 'liste_graphiques' %}">Retour à la liste des graphiques</a>
 </form>
