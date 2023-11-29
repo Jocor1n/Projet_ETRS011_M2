@@ -372,6 +372,13 @@ def donnees_machines(request):
         seconds = seconds % 60
         return f"{hours}h {minutes}min {seconds}secondes"
     
+    def cent_format_seconds(cent_seconds):
+        seconds = int(cent_seconds) // 100
+        hours = seconds // 3600
+        minutes = (seconds % 3600) // 60
+        seconds = seconds % 60
+        return f"{hours}h {minutes}min {seconds}secondes"
+    
     def ratio_to_pourcentage(ratio):
         return math.ceil(float(ratio) * 100)
     
@@ -393,6 +400,9 @@ def donnees_machines(request):
             
         elif graphique_entree == "Seconde":
             to_convert = format_seconds(to_convert)
+            
+        elif graphique_entree == "CentSeconde":
+            to_convert = cent_format_seconds(to_convert)
                      
         elif graphique_entree == "Ratio" and graphique_sortie == "Pourcentage":
             to_convert = ratio_to_pourcentage(to_convert)

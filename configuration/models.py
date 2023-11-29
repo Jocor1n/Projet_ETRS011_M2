@@ -63,6 +63,7 @@ class Graphique(models.Model):
         ('Heure', 'Heure'),
         ('Minute', 'Minute'),
         ('Seconde', 'Seconde'),
+        ('CentSeconde', 'CentSeconde'),
         ('Ratio', 'Ratio'),
         ('Pourcentage', 'Pourcentage')
     ]

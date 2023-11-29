@@ -29,18 +29,18 @@
     ],
     "snmp_results": {
         "MachineManager": {
-            "sysUpTime": "105820",
-            "ifInOctets-int2": "22520512",
-            "ramMax": "3955972",
+            "sysName": "Linux ServeurWeb 5.15.0-1051-azure #59~20.04.1-Ubuntu SMP Tue Oct 17 16:45:08 UTC 2023 x86_64",
+            "diskSpace": "48",
             "networkSpeed": "10000000",
-            "ramDispo": "125112",
+            "sysUpTime": "1112236",
             "ifOperStatus": "1",
-            "diskSpace": "49",
-            "sysName": "Linux ServeurWeb 5.15.0-1050-azure #57~20.04.1-Ubuntu SMP Wed Oct 4 17:09:16 UTC 2023 x86_64",
-            "ifInOctets-int1": "61496505",
-            "cpuUsage": "0.17",
-            "ifOutOctets-int2": "62350009",
-            "ifOutOctets-int1": "61496505"
+            "ifInOctets-int1": "75115704",
+            "cpuUsage": "0.14",
+            "ramMax": "3955972",
+            "ramDispo": "195736",
+            "ifInOctets-int2": "131366052",
+            "ifOutOctets-int1": "75115704",
+            "ifOutOctets-int2": "86733999"
         },
         "TestClient": {
             "ifOperStatus": "0"
