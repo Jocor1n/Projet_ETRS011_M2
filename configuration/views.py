@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.conf import settings 
 import os
 from django.http import HttpResponse
+import math
 
 @login_required
 def index(request):
@@ -22,8 +23,6 @@ def add_machine(request):
         if form.is_valid():
             form.save()
             return redirect("liste_machines")
-        else:
-            print(form.errors)
 
     return render(request, 'add_configuration.html', {'form': form})
 
@@ -37,7 +36,6 @@ def edit_machine(request, machine_id):
     machine = get_object_or_404(Machine, id=machine_id)
     if request.method == 'POST':
         form = MachineForm(request.POST, instance=machine)
-        print(form.errors)
         if form.is_valid():
             form.save()
             return redirect('liste_machines')
@@ -375,69 +373,106 @@ def donnees_machines(request):
         return f"{hours}h {minutes}min {seconds}secondes"
     
     def ratio_to_pourcentage(ratio):
-        return ratio * 100
+        return math.ceil(float(ratio) * 100)
     
     def pourcentage_to_ratio(pourcentage):
-        return pourcentage / 100
+        return math.ceil(float(pourcentage) / 100)
     
     def boulean_to_text(boolean):
-        if boolean == True :
+        if int(boolean) == 1 :
             return "Vrai"
         else:
             return "Faux"
+        
+    def do_conversion(graphique_entree, graphique_sortie, to_convert):
+        if graphique_entree == "Heure":
+            to_convert = format_hours(to_convert)
+        
+        elif graphique_entree == "Minute":
+            to_convert = format_minutes(to_convert)
+            
+        elif graphique_entree == "Seconde":
+            to_convert = format_seconds(to_convert)
+                     
+        elif graphique_entree == "Ratio" and graphique_sortie == "Pourcentage":
+            to_convert = ratio_to_pourcentage(to_convert)
     
+        elif graphique_entree == "Pourcentage" and graphique_sortie == "Ratio":
+            to_convert = pourcentage_to_ratio(to_convert)
+            
+        elif graphique_entree == "Boolean" and graphique_sortie == "Texte":
+            to_convert = boulean_to_text(to_convert)
+            
+        return to_convert
     
     for graphique in graphiques :
         list_temp = []
-        if graphique.GraphiqueType == "Texte" :
+        if graphique.GraphiqueType == "Texte":
             list_temp.append("Texte")
             list_temp.append(graphique)
            
-            list_temp.append(data["types"][graphique.OID1.name])
             if graphique.type_de_donnees_entree == graphique.type_de_donnees_sortie:
                 list_temp.append(data["types"][graphique.OID1.name].data)
             else:
-                to_convert = data["types"][graphique.OID1.name].data
-                
-                if graphique.type_de_donnees_entree == "Heure":
-                    to_convert = format_hours(to_convert)
-                
-                elif graphique.type_de_donnees_entree == "Minute":
-                    to_convert = format_minutes(to_convert)
-                    
-                elif graphique.type_de_donnees_entree == "Seconde":
-                    to_convert = format_seconds(to_convert)
-                             
-                elif graphique.type_de_donnees_entree == "Ratio" and graphique.type_de_donnees_sortie == "Pourcentage":
-                    to_convert = ratio_to_pourcentage(to_convert)
-            
-                elif graphique.type_de_donnees_entree == "Pourcentage" and graphique.type_de_donnees_sortie == "Ratio":
-                    to_convert = pourcentage_to_ratio(to_convert)
-                    
-                elif graphique.type_de_donnees_entree == "Boolean" and graphique.type_de_donnees_sortie == "Texte":
-                    to_convert = boulean_to_text(to_convert)
-                    
-                list_temp.append(to_convert)
+                to_convert = data["types"][graphique.OID1.name].data    
+                convert = do_conversion(graphique.type_de_donnees_entree, graphique.type_de_donnees_sortie, to_convert)      
+                list_temp.append(convert)
            
         elif graphique.GraphiqueType == "Curseur":
             list_temp.append("Curseur")
             list_temp.append(graphique)
-            list_temp.append(data["types"][graphique.OID1.name])
+            
+            if graphique.type_de_donnees_entree == graphique.type_de_donnees_sortie:
+                list_temp.append(data["types"][graphique.OID1.name].data)
+            else:
+                to_convert = data["types"][graphique.OID1.name].data
+                convert = do_conversion(graphique.type_de_donnees_entree, graphique.type_de_donnees_sortie, to_convert)
+                list_temp.append(convert)
+                
+                
         else :
             list_temp.append("Fleche")
             list_temp.append(graphique)
             liste_queryset = []
+            liste_groupe = []
             for element in list(data["types"][graphique.OID1.name]):
-                liste_queryset.append(element)
+                liste_groupe.append(element)       
+                if graphique.type_de_donnees_entree == graphique.type_de_donnees_sortie:
+                    liste_groupe.append(element.data)
+                    liste_queryset.append(liste_groupe)
+                    liste_groupe = []
+                else:
+                    to_convert =element.data
+                    
+                    convert = do_conversion(graphique.type_de_donnees_entree, graphique.type_de_donnees_sortie, to_convert)
+                                            
+                    liste_groupe.append(convert)
+                    liste_queryset.append(liste_groupe)
+                    liste_groupe = []
+                
             list_temp.append(liste_queryset)
+            
             liste_queryset2 = []
             try:
+                
                 if data["types"][graphique.OID2.name] != None:
                     for element in list(data["types"][graphique.OID2.name]):
-                         liste_queryset2.append(element)
-                    list_temp.append(liste_queryset2)
+                        liste_groupe.append(element)       
+                        if graphique.type_de_donnees_entree == graphique.type_de_donnees_sortie:
+                            liste_groupe.append(element.data)
+                            liste_queryset2.append(liste_groupe)
+                            liste_groupe = []
+                        else:
+                            to_convert =element.data
+                            
+                            convert = do_conversion(graphique.type_de_donnees_entree, graphique.type_de_donnees_sortie, to_convert)
+                                                    
+                            liste_groupe.append(convert)
+                            liste_queryset2.append(liste_groupe)
+                            liste_groupe = []
             except AttributeError:
-                liste_queryset2.append(None)
+                liste_queryset2.append(["",""])
+            list_temp.append(liste_queryset2)
             
         data_graphiques.append(list_temp)
         

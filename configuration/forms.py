@@ -1,7 +1,5 @@
 from django import forms
 from .models import Machine, Graphique, OID, Machine_has_OID, Graphique_has_Machine
-from django.db.models import Q
-
 
 class MachineForm (forms.ModelForm):
     class Meta :

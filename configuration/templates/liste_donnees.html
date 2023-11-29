@@ -42,7 +42,7 @@
                     <div class="row">
                     {% endif %}
                 <div class="col-sm-12">
-                    <p class="text-center"> {{data_graphique.1.name}} : {{data_graphique.3}}</p>
+                    <p class="text-center"> {{data_graphique.1.name}} : {{data_graphique.2}}</p>
                 </div>
                 </div>
                 {% update_variable True as new_row %}
@@ -64,7 +64,7 @@
                             var data = [
                                   	{
                                   		domain: { x: [0, 1], y: [0, 1] },
-                                  		value: {{data_graphique.2.data}},
+                                  		value: {{data_graphique.2}},
                                   		title: { text: "{{data_graphique.1.name}}" },
                                   		type: "indicator",
                                   		mode: "gauge+number",
@@ -93,29 +93,29 @@
                            
                            var trace1 = {
   x: [{% for data_graphique in data_graphique.2 %}
-        '{{ data_graphique.date|date:"Y-m-d H:i" }}'{% if not forloop.last %}, {% endif %}
+        '{{ data_graphique.0.date|date:"Y-m-d H:i" }}'{% if not forloop.last %}, {% endif %}
     {% endfor %}],
   y: [{% for data_graphique in data_graphique.2 %}
-        '{{ data_graphique.data }}'{% if not forloop.last %}, {% endif %}
+        '{{ data_graphique.1 }}'{% if not forloop.last %}, {% endif %}
     {% endfor %}],
   mode: 'lines+markers',
-  name: '{{data_graphique.2.0.information_type}}'
+  name: '{{data_graphique.2.0.0.information_type}}'
 };
 
-{% if data_graphique.3 != "None" %}
+{% if data_graphique.3.0.0 != "" %}
 var trace2 = {
   x: [{% for data_graphique in data_graphique.3 %}
-        '{{ data_graphique.date|date:"Y-m-d H:i" }}'{% if not forloop.last %}, {% endif %}
+        '{{ data_graphique.0.date|date:"Y-m-d H:i" }}'{% if not forloop.last %}, {% endif %}
     {% endfor %}],
   y: [{% for data_graphique in data_graphique.3 %}
-        '{{ data_graphique.data }}'{% if not forloop.last %}, {% endif %}
+        '{{ data_graphique.1 }}'{% if not forloop.last %}, {% endif %}
     {% endfor %}],
   mode: 'lines+markers',
-  name: '{{data_graphique.3.0.information_type}}'
+  name: '{{data_graphique.3.0.0.information_type}}'
 };
 {% endif %}
 
-{% if data_graphique.3 != "None"%}
+{% if data_graphique.3.0.0 != "" %}
 var data = [ trace1, trace2];
     {% else %}
 var data = [ trace1];
